@@ -1,0 +1,41 @@
+.container {
+  background-image: url(https://mllj2j8xvfl0.i.optimole.com/BwCY1hs-AjDXBluU/w:auto/h:auto/q:auto/https://demosites.io/neve-shop/wp-content/uploads/sites/188/2019/03/nv-shop-slide1.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 85vh;
+}
+
+.welcome {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h3 {
+  margin-top: 10%;
+  margin-bottom: 5%;
+  font-size: 3rem;
+  font-weight: 500;
+}
+
+p {
+  font-size: 1rem;
+}
+
+ul {
+  margin-top: 20%;
+  list-style: none;
+  display: flex;
+}
+
+li {
+  margin: 1rem;
+  background-color: rgb(52, 84, 203);
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+a {
+  font-weight: 700;
+}

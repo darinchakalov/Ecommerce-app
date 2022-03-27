@@ -1,18 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+  padding: 0;
+  margin: 0;
+  color: white;
+  font-family: "Open Sans", sans-serif;
+  box-sizing: content-box;
+}
 
 html,
 body {
-  height: 100%;
+  min-height: 100%;
 }
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-  background: rgb(196, 144, 237);
-  background: linear-gradient(
-    87deg,
-    rgba(196, 144, 237, 1) 0%,
-    rgba(105, 160, 224, 1) 100%
-  );
-  background-repeat: no-repeat;
   /* min-height: 100vh; */
 }

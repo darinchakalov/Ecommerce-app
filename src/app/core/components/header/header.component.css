@@ -8,16 +8,11 @@ header {
   display: flex;
   flex-direction: row;
   align-items: center;
-  width: 100%;
+  width: 90%;
 }
 
 .wrapper *:hover {
   cursor: pointer;
-}
-
-.logo-wrap {
-  /* display: flex;
-  align-items: center; */
 }
 
 .logo {
