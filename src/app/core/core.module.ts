@@ -5,10 +5,11 @@ import { FooterComponent } from './components/footer/footer.component';
 
 import { MatMenuModule } from '@angular/material/menu';
 import { MatBadgeModule } from '@angular/material/badge';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [HeaderComponent, FooterComponent],
-  imports: [CommonModule, MatMenuModule, MatBadgeModule],
+  imports: [CommonModule, MatMenuModule, MatBadgeModule, RouterModule],
   exports: [HeaderComponent, FooterComponent],
 })
 export class CoreModule {}
