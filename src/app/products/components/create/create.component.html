@@ -1,0 +1,25 @@
+<div class="container">
+  <form #createForm="ngForm" (ngSubmit)="create()">
+    <div class="name-wrapper wrapper">
+      <label for="name">Product name</label>
+      <input type="text" name="name" id="nameInput" ngModel />
+    </div>
+    <div class="description-wrapper wrapper">
+      <label for="description">Description</label>
+      <textarea name="description" id="" cols="30" rows="10" ngModel></textarea>
+      <!-- <input type="text" name="description" id="textInput" /> -->
+    </div>
+    <div class="price-wrapper wrapper">
+      <label for="price">Price</label>
+      <input type="text" name="price" id="priceInput" ngModel />
+    </div>
+    <div class="img-wrapper wrapper">
+      <label for="imgUrl">Image URL</label>
+      <input type="text" name="imgUrl" id="urlInput" ngModel />
+    </div>
+    <div class="button-wrapper">
+      <button>Create</button>
+      <button type="button" routerLink="/home">Cancel</button>
+    </div>
+  </form>
+</div>

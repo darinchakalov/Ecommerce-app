@@ -1,0 +1,68 @@
+.container * {
+  color: black;
+}
+
+.container {
+  margin: auto auto;
+  width: 80%;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("src/assets/forms.jpg");
+}
+
+form {
+  display: grid;
+  width: 60%;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  gap: 1rem;
+}
+
+.name-wrapper {
+  grid-column-start: 1;
+  grid-column-end: 2;
+}
+
+.price-wrapper {
+  grid-column-start: 2;
+  grid-column-end: 3;
+}
+
+.description-wrapper {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 2;
+  grid-row-end: 5;
+}
+
+.wrapper input {
+  height: 100%;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.button-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 5;
+  gap: 1rem;
+}
+
+.button-wrapper button {
+  padding: 0.8rem 5rem;
+  background-color: rgb(52, 84, 203);
+  border-style: none;
+  color: white;
+  border-radius: 5px;
+}

@@ -3,7 +3,7 @@
 }
 
 .welcome {
-  background-image: url(https://mllj2j8xvfl0.i.optimole.com/BwCY1hs-AjDXBluU/w:auto/h:auto/q:auto/https://demosites.io/neve-shop/wp-content/uploads/sites/188/2019/03/nv-shop-slide1.jpg);
+  background-image: url(src/assets/nv-shop-slide1.jpg);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -35,6 +35,10 @@ li {
   background-color: rgb(52, 84, 203);
   padding: 1rem;
   border-radius: 5px;
+}
+
+li:hover {
+  cursor: pointer;
 }
 
 a {
