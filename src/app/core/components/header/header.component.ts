@@ -7,5 +7,6 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
   isLogged: boolean = true;
+  itemsCount: number = 2;
   constructor() {}
 }

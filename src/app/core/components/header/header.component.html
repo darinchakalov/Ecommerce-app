@@ -19,7 +19,7 @@
           <!-- <mat-icon matBadge="15" matBadgeColor="warn">Cart</mat-icon> -->
           <a
             mat-button
-            matBadge="2"
+            [matBadge]="itemsCount"
             matBadgeColor="warn"
             matBadgeOverlap="false"
             routerLink="/cart"
