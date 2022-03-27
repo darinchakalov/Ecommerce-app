@@ -1,3 +1,49 @@
 header {
   background-color: rgba(46, 46, 48, 0.904);
+  color: white;
+}
+
+.wrapper {
+  padding: 1rem 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+}
+
+.wrapper *:hover {
+  cursor: pointer;
+}
+
+.logo-wrap {
+  /* display: flex;
+  align-items: center; */
+}
+
+.logo {
+  font-size: 1.7rem;
+}
+
+.logo:hover {
+  transform: scale(1.1);
+}
+
+.navbar-wrap {
+  display: flex;
+  align-items: center;
+}
+
+nav {
+  margin-left: 2rem;
+}
+
+.mini-navbar-wrap {
+  justify-self: flex-end;
+  position: absolute;
+  right: 10px;
+}
+
+a {
+  margin: 1rem;
+  font-size: 1rem;
 }
