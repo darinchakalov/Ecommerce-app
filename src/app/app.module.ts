@@ -8,6 +8,7 @@ import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
 import { HomeModule } from './home/home.module';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent, NotFoundComponent],
@@ -17,7 +18,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     CoreModule,
-    HomeModule
+    HomeModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

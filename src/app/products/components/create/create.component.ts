@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { ProductService } from '../../services/product.service';
 
 @Component({
   selector: 'app-create',
@@ -9,9 +10,16 @@ import { NgForm } from '@angular/forms';
 export class CreateComponent {
   @ViewChild(NgForm) createForm: NgForm | undefined;
 
-  constructor() {}
+  constructor(private productService: ProductService) {}
 
-  create() {
-    console.log(this.createForm?.value);
+  create(): void {
+    this.productService.createNewProduct(this.createForm?.value).subscribe({
+      next: () => {
+        console.log('ok');
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
   }
 }
