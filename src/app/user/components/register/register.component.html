@@ -5,15 +5,15 @@
     </div>
     <div class="form-wrapper">
       <h2>Create your new account</h2>
-      <form>
+      <form #form="ngForm" (ngSubmit)="register()" method="post">
         <label for="username">Username</label>
-        <input type="text" name="username" />
+        <input type="text" name="username" ngModel />
         <label for="email">Email</label>
-        <input type="email" name="email" />
+        <input type="email" name="email" ngModel />
         <label for="password">Password</label>
-        <input type="password" name="password" />
+        <input type="password" name="password" ngModel />
         <label for="repass">Repeat Password</label>
-        <input type="password" name="repass" />
+        <input type="password" name="repass" ngModel />
         <button>Register</button>
       </form>
     </div>
