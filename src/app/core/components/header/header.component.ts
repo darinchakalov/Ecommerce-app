@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent {
-  isLogged: boolean = true;
+  isLogged: boolean = false;
   itemsCount: number = 2;
   constructor() {}
 }
