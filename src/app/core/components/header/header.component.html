@@ -32,7 +32,7 @@
             <a routerLink="/profile" mat-menu-item>My Profile</a>
             <a routerLink="/products/create" mat-menu-item>Create Product</a>
             <a routerLink="/products/mine" mat-menu-item>My Products</a>
-            <a mat-menu-item>Logout</a>
+            <a mat-menu-item (click)="logout()">Logout</a>
           </mat-menu>
         </div>
         <div class="not-logged" *ngIf="!isLogged">

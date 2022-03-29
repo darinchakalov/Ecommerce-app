@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/user/services/auth.service';
 
 @Component({
@@ -12,5 +13,11 @@ export class HeaderComponent {
   }
   itemsCount: number = 2;
 
-  constructor(private userService: AuthService) {}
+  constructor(private userService: AuthService, private router: Router) {}
+
+  logout(): void {
+    this.userService.logout().subscribe(() => {
+      this.router.navigate(['/']);
+    });
+  }
 }

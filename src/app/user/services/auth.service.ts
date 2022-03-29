@@ -37,4 +37,10 @@ export class AuthService {
       })
       .pipe(tap((user) => (this.user = user)));
   }
+
+  logout() {
+    return this.http
+      .post<IUser>(`http://localhost:3000/api/logout`, {})
+      .pipe(tap(() => (this.user = null)));
+  }
 }
