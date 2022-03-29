@@ -9,7 +9,7 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent {
-  @ViewChild(NgForm) form: NgForm | undefined;
+  @ViewChild(NgForm) form!: NgForm;
 
   constructor(private userService: AuthService, private router: Router) {}
 

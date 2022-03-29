@@ -1,15 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
+  @ViewChild(NgForm) form!: NgForm;
 
-  constructor() { }
+  constructor(private userService: AuthService, private router: Router) {}
 
-  ngOnInit(): void {
+  login(): void {
+    this.userService.login(this.form.value).subscribe({
+      next: () => {
+        this.router.navigate(['/']);
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
   }
-
 }

@@ -8,8 +8,6 @@ import { AuthService } from 'src/app/user/services/auth.service';
 })
 export class HeaderComponent {
   get isLogged(): boolean {
-    console.log(this.userService.isLoggedIn);
-
     return this.userService.isLoggedIn;
   }
   itemsCount: number = 2;

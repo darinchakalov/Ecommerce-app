@@ -5,11 +5,11 @@
     </div>
     <div class="form-wrapper">
       <h2>Log in to your account</h2>
-      <form>
+      <form #form="ngForm" (ngSubmit)="login()">
         <label for="email">Email</label>
-        <input type="email" name="email" />
+        <input type="email" name="email" ngModel />
         <label for="password">Password</label>
-        <input type="password" name="password" />
+        <input type="password" name="password" ngModel />
         <button>Login</button>
       </form>
     </div>

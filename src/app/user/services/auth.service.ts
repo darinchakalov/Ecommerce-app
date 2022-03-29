@@ -10,12 +10,20 @@ export class AuthService {
   user: IUser | null | undefined = undefined;
 
   get isLoggedIn(): boolean {
-    console.log(this.user);
-
     return !!this.user;
   }
 
   constructor(private http: HttpClient) {}
+
+  login(data: { email: string; password: string }) {
+    console.log(data);
+
+    return this.http
+      .post<IUser>(`http://localhost:3000/api/login`, data, {
+        withCredentials: true,
+      })
+      .pipe(tap((user) => (this.user = user)));
+  }
 
   register(data: {
     email: string;
@@ -27,6 +35,6 @@ export class AuthService {
       .post<IUser>(`http://localhost:3000/api/register`, data, {
         withCredentials: true,
       })
-      .pipe(tap((user) => ((this.user = user), console.log(user))));
+      .pipe(tap((user) => (this.user = user)));
   }
 }
