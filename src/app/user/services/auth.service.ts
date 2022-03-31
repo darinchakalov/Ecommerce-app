@@ -7,7 +7,7 @@ import { IUser } from 'src/app/shared/interfaces/user';
   providedIn: 'root',
 })
 export class AuthService {
-  user: IUser | null | undefined;
+  user: IUser | null | undefined = undefined;
 
   get isLoggedIn(): boolean {
     return !!this.user;
@@ -17,9 +17,7 @@ export class AuthService {
 
   login(data: { email: string; password: string }) {
     return this.http
-      .post<IUser>(`http://localhost:3000/api/login`, data, {
-        withCredentials: true,
-      })
+      .post<IUser>(`/api/login`, data)
       .pipe(tap((user) => (this.user = user)));
   }
 
@@ -30,23 +28,19 @@ export class AuthService {
     repass: string;
   }) {
     return this.http
-      .post<IUser>(`http://localhost:3000/api/register`, data, {
-        withCredentials: true,
-      })
+      .post<IUser>(`/api/register`, data)
       .pipe(tap((user) => (this.user = user)));
   }
 
   logout() {
     return this.http
-      .post<IUser>(`http://localhost:3000/api/logout`, {})
+      .post<IUser>(`/api/logout`, {})
       .pipe(tap(() => (this.user = null)));
   }
 
   getUserInfo() {
     return this.http
-      .get<IUser>(`http://localhost:3000/api/users/profile`, {
-        withCredentials: true,
-      })
+      .get<IUser>(`/api/users/profile`)
       .pipe(tap((user) => (this.user = user)));
   }
 }

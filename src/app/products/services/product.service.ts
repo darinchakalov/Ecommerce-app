@@ -9,6 +9,10 @@ export class ProductService {
   constructor(private http: HttpClient) {}
 
   createNewProduct(data: any) {
-    return this.http.post<IProduct>(`http://localhost:3030/products`, data);
+    return this.http.post<IProduct>(`/api/products`, data);
+  }
+
+  getAllProducts() {
+    return this.http.get<IProduct[]>(`/api/products`);
   }
 }

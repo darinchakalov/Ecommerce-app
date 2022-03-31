@@ -1,25 +1,23 @@
-<div class="container">
-  <form #createForm="ngForm" (ngSubmit)="create()">
-    <div class="name-wrapper wrapper">
-      <label for="name">Product name</label>
-      <input type="text" name="name" id="nameInput" ngModel />
+<div class="content">
+  <div class="wrapper">
+    <div class="form-wrapper">
+      <h2>Create a new product</h2>
+      <form #form="ngForm" (ngSubmit)="create()">
+        <label for="email">Product name</label>
+        <input type="text" name="name" ngModel />
+        <label for="price">Price</label>
+        <input type="number" name="price" ngModel />
+        <label for="quantity">Quantity</label>
+        <input type="number" name="quantity" ngModel />
+        <label for="imgUrl">Image Url</label>
+        <input type="url" name="imgUrl" ngModel />
+        <label for="description">Description</label>
+        <textarea name="description" cols="30" rows="10" ngModel></textarea>
+        <div class="button-wrapper">
+          <button>Create</button>
+          <button>Cancel</button>
+        </div>
+      </form>
     </div>
-    <div class="description-wrapper wrapper">
-      <label for="description">Description</label>
-      <textarea name="description" id="" cols="30" rows="10" ngModel></textarea>
-      <!-- <input type="text" name="description" id="textInput" /> -->
-    </div>
-    <div class="price-wrapper wrapper">
-      <label for="price">Price</label>
-      <input type="text" name="price" id="priceInput" ngModel />
-    </div>
-    <div class="img-wrapper wrapper">
-      <label for="imgUrl">Image URL</label>
-      <input type="text" name="imgUrl" id="urlInput" ngModel />
-    </div>
-    <div class="button-wrapper">
-      <button>Create</button>
-      <button type="button" routerLink="/home">Cancel</button>
-    </div>
-  </form>
+  </div>
 </div>

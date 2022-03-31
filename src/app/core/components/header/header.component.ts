@@ -8,9 +8,15 @@ import { AuthService } from 'src/app/user/services/auth.service';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent {
+
   get isLogged(): boolean {
     return this.userService.isLoggedIn;
   }
+
+  get username(): string {
+    return this.userService.user?.username || '';
+  }
+
   itemsCount: number = 2;
 
   constructor(private userService: AuthService, private router: Router) {}
