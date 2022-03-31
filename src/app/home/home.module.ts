@@ -5,10 +5,17 @@ import { LatestProductsComponent } from './components/latest-products/latest-pro
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { BeInspiredComponent } from './components/be-inspired/be-inspired.component';
 import { ElegantComponent } from './components/elegant/elegant.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
-  declarations: [MainComponent, LatestProductsComponent, WelcomeComponent, BeInspiredComponent, ElegantComponent],
-  imports: [CommonModule],
+  declarations: [
+    MainComponent,
+    LatestProductsComponent,
+    WelcomeComponent,
+    BeInspiredComponent,
+    ElegantComponent,
+  ],
+  imports: [CommonModule, RouterModule],
   exports: [MainComponent, LatestProductsComponent],
 })
 export class HomeModule {}

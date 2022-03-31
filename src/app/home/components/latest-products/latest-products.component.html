@@ -1,3 +1,20 @@
-<div class="latest" id="#latest" #latest>
+<div class="content">
   <h2>LATEST PRODUCTS</h2>
+  <div class="content-wrapper">
+    <ng-container *ngFor="let product of products">
+      <div class="product-wrapper">
+        <div class="image-wrapper">
+          <img src="{{ product.imgUrl }}" alt="" />
+        </div>
+        <div class="button-wrapper">
+          <a routerLink="/products/{{ product._id }}">Add to cart</a>
+          <a routerLink="/products/{{ product._id }}">Details</a>
+        </div>
+        <div class="info-wrapper">
+          <h3>{{ product.name }}</h3>
+          <span class="price">Price: ${{ product.price }}</span>
+        </div>
+      </div>
+    </ng-container>
+  </div>
 </div>

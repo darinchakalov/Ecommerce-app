@@ -48,4 +48,5 @@ a {
 
 .matMenuItem {
   color: black;
+  cursor: pointer;
 }

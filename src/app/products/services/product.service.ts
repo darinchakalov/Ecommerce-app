@@ -12,7 +12,8 @@ export class ProductService {
     return this.http.post<IProduct>(`/api/products`, data);
   }
 
-  getAllProducts() {
-    return this.http.get<IProduct[]>(`/api/products`);
+  getAllProducts(limit?: number) {
+    const query = limit ? `?limit=${limit}` : '';
+    return this.http.get<IProduct[]>(`/api/products${query}`);
   }
 }
