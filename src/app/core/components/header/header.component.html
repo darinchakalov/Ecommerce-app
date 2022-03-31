@@ -28,13 +28,17 @@
           <a mat-button [matMenuTriggerFor]="menu"
             ><i class="fa-solid fa-user"></i
           ></a>
-          <mat-menu #menu="matMenu">
-            <a routerLink="/user/profile" mat-menu-item
+          <mat-menu #menu="matMenu" class="matMenu">
+            <a class="matMenuItem" routerLink="/user/profile" mat-menu-item
               >{{ username | titlecase }}`s Profile</a
             >
-            <a routerLink="/products/create" mat-menu-item>Create Product</a>
-            <a routerLink="/products/mine" mat-menu-item>My Products</a>
-            <a mat-menu-item (click)="logout()">Logout</a>
+            <a class="matMenuItem" routerLink="/products/create" mat-menu-item
+              >Create Product</a
+            >
+            <a class="matMenuItem" routerLink="/products/mine" mat-menu-item
+              >My Products</a
+            >
+            <a class="matMenuItem" mat-menu-item (click)="logout()">Logout</a>
           </mat-menu>
         </div>
         <div class="not-logged" *ngIf="!isLogged">

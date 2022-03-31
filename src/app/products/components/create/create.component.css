@@ -1,68 +1,69 @@
-.container * {
-  color: black;
-}
-
-.container {
-  margin: auto auto;
-  width: 80%;
-  height: 80vh;
+.content {
+  background-image: url(src/assets/forms.jpg);
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url("src/assets/forms.jpg");
-}
-
-form {
-  display: grid;
-  width: 60%;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(5, 1fr);
-  gap: 1rem;
-}
-
-.name-wrapper {
-  grid-column-start: 1;
-  grid-column-end: 2;
-}
-
-.price-wrapper {
-  grid-column-start: 2;
-  grid-column-end: 3;
-}
-
-.description-wrapper {
-  grid-column-start: 1;
-  grid-column-end: 4;
-  grid-row-start: 2;
-  grid-row-end: 5;
-}
-
-.wrapper input {
-  height: 100%;
 }
 
 .wrapper {
+  background-color: white;
+  width: 60%;
+  /* height: 60%; */
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px grey;
+}
+
+.form-wrapper {
+  flex-basis: 50%;
+}
+
+.form-wrapper * {
+  color: black;
+}
+
+h2 {
   text-align: center;
 }
 
-.button-wrapper {
+form {
   display: flex;
-  justify-content: center;
-  width: 100%;
-  align-items: center;
-  grid-column-start: 1;
-  grid-column-end: 4;
-  grid-row-start: 5;
-  gap: 1rem;
+  flex-direction: column;
 }
 
-.button-wrapper button {
-  padding: 0.8rem 5rem;
-  background-color: rgb(52, 84, 203);
-  border-style: none;
-  color: white;
+form label {
+  text-align: center;
+  font-size: 1rem;
+}
+
+form input {
   border-radius: 5px;
+  border-style: none;
+  background-color: rgb(233, 233, 233);
+  height: 2rem;
+  margin-bottom: 1rem;
+}
+
+form textarea {
+  background-color: rgb(233, 233, 233);
+  border-radius: 5px;
+  border-style: none;
+}
+
+form button {
+  margin: 0.5rem;
+  width: 40%;
+  border-style: none;
+  background-color: rgb(52, 84, 203);
+  border-radius: 5px;
+  padding: 0.5rem 0.5rem;
+  color: white !important;
+}
+
+.button-wrapper {
+  margin: 1rem;
+  display: flex;
 }
