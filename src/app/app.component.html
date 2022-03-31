@@ -1,4 +1,8 @@
-<div class="container">
+<div *ngIf="isAuthenticating">
+  <app-loader></app-loader>
+</div>
+
+<div *ngIf="!isAuthenticating" class="container">
   <app-header></app-header>
   <div class="content">
     <router-outlet></router-outlet>
