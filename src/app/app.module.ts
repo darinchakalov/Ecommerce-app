@@ -9,17 +9,19 @@ import { CoreModule } from './core/core.module';
 import { HomeModule } from './home/home.module';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AboutModule } from './about/about.module';
 
 @NgModule({
   declarations: [AppComponent, NotFoundComponent],
   imports: [
     SharedModule,
     BrowserModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
     CoreModule,
     HomeModule,
+    AboutModule,
     HttpClientModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

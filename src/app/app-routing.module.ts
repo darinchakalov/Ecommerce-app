@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AboutMainComponent } from './about/components/about-main/about-main.component';
 import { MainComponent } from './home/components/main/main.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: 'user',
     loadChildren: () => import('./user/user.module').then((m) => m.UserModule),
+  },
+  {
+    path: 'about',
+    component: AboutMainComponent,
   },
   {
     path: '**',
