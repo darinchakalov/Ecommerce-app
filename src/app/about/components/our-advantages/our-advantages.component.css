@@ -1,0 +1,52 @@
+.container * {
+  color: black;
+}
+
+.wrapper {
+  max-width: 80%;
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+h1 {
+  font-size: 2rem;
+  letter-spacing: 0.7rem;
+}
+
+.subheader {
+  font-style: italic;
+  font-weight: 100;
+}
+
+.grid-section {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  justify-items: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.info-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+  margin: auto;
+  justify-content: center;
+}
+
+.info-wrapper * {
+  padding: 0.7rem;
+}
+.icon {
+  font-size: 3rem;
+}
+
+.info-text{
+    text-align: center;
+}

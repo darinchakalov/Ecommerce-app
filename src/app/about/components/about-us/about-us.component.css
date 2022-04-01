@@ -1,0 +1,29 @@
+.content {
+  background-image: url(src/assets/joshua-rawson-harris-bMMOBVp6KQU-unsplash.webp);
+  height: 50vh;
+  background-repeat: no-repeat;
+  background-position: 70%;
+  display: flex;
+}
+
+.wrapper {
+  width: 60%;
+  margin: auto;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.content h1 {
+  color: white;
+  text-align: center;
+  font-size: 2rem;
+  letter-spacing: 1rem;
+}
+
+.content p {
+    color: white;
+    font-style: italic;
+    font-size: 1rem;
+    letter-spacing: 0.2rem;
+    font-family: "Volkhov", Sans-serif;
+}
