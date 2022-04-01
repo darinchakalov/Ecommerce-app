@@ -1,1 +1,24 @@
-<p>product works!</p>
+<div class="container">
+  <div class="content">
+    <div class="image-wrapper">
+      <img src="{{ product?.imgUrl }}" alt="" />
+    </div>
+    <div class="info-wrapper">
+      <h1>{{ product?.name | uppercase }}</h1>
+      <div class="price">Price: ${{ product?.price }}</div>
+      <p>{{ product?.description }}</p>
+      <label for="quantity">Available quantity: {{ product?.quantity }}</label>
+      <div class="add-to-cart-wrapper">
+        <input
+          type="number"
+          name="quantity"
+          value="1"
+          max="{{ product?.quantity }}"
+          min="1"
+        />
+        <a>Add to cart</a>
+      </div>
+      <div class="devider"></div>
+    </div>
+  </div>
+</div>

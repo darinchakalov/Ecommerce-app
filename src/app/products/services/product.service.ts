@@ -16,4 +16,8 @@ export class ProductService {
     const query = limit ? `?limit=${limit}` : '';
     return this.http.get<IProduct[]>(`/api/products${query}`);
   }
+
+  getSingleProduct(id: string) {
+    return this.http.get<IProduct>(`/api/products/${id}`);
+  }
 }

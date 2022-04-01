@@ -44,6 +44,12 @@ h1 {
   font-size: 3rem;
 }
 
-.info-text{
-    text-align: center;
+.info-text {
+  text-align: center;
+}
+
+.devider {
+  background-color: lightgrey;
+  height: 1px;
+  width: 100%;
 }
