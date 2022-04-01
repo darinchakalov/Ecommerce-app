@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { CartService } from 'src/app/products/services/cart.service';
 import { AuthService } from 'src/app/user/services/auth.service';
 
 @Component({
@@ -8,7 +9,6 @@ import { AuthService } from 'src/app/user/services/auth.service';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent {
-
   get isLogged(): boolean {
     return this.userService.isLoggedIn;
   }
@@ -17,9 +17,17 @@ export class HeaderComponent {
     return this.userService.user?.username || '';
   }
 
-  itemsCount: number = 2;
+  get itemsCount(): number {
+    console.log(this.cartService.items);
 
-  constructor(private userService: AuthService, private router: Router) {}
+    return this.cartService.items.length;
+  }
+
+  constructor(
+    private userService: AuthService,
+    private router: Router,
+    private cartService: CartService
+  ) {}
 
   logout(): void {
     this.userService.logout().subscribe(() => {

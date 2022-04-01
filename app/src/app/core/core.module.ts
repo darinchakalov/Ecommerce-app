@@ -8,9 +8,17 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { RouterModule } from '@angular/router';
 import { httpInterceptorHandler } from './interceptors/http.interceptor';
 
+
+
 @NgModule({
   declarations: [HeaderComponent, FooterComponent],
-  imports: [CommonModule, MatMenuModule, MatBadgeModule, RouterModule],
+  imports: [
+    CommonModule,
+    MatMenuModule,
+    MatBadgeModule,
+    RouterModule,
+    
+  ],
   exports: [HeaderComponent, FooterComponent],
   providers: [httpInterceptorHandler],
 })

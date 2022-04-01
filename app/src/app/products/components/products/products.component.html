@@ -10,7 +10,7 @@
       </div>
       <div class="info-wrapper">
         <h3>{{ product.name }}</h3>
-        <span class="price">Price: ${{ product.price }}</span>
+        <span class="price">Price: {{ product.price | currency: 'USD' }}</span>
       </div>
     </div>
   </ng-container>

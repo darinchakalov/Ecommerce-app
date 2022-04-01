@@ -5,7 +5,7 @@
     </div>
     <div class="info-wrapper">
       <h1>{{ product?.name | uppercase }}</h1>
-      <div class="price">Price: ${{ product?.price }}</div>
+      <div class="price">Price: {{ product?.price | currency: "USD" }}</div>
       <p>{{ product?.description }}</p>
       <label for="quantity">Available quantity: {{ product?.quantity }}</label>
       <div class="add-to-cart-wrapper">
@@ -16,7 +16,7 @@
           max="{{ product?.quantity }}"
           min="1"
         />
-        <a>Add to cart</a>
+        <a (click)="addToCart()">Add to cart</a>
       </div>
       <div class="devider"></div>
     </div>

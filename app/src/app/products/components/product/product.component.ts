@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { IProduct } from 'src/app/shared/interfaces/product';
-import { AuthService } from 'src/app/user/services/auth.service';
+import { CartService } from '../../services/cart.service';
 import { ProductService } from '../../services/product.service';
 
 @Component({
@@ -12,9 +12,14 @@ import { ProductService } from '../../services/product.service';
 export class ProductComponent {
   product: IProduct | undefined;
 
+  get items() {
+    return this.cartService.getItems();
+  }
+
   constructor(
     private productService: ProductService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private cartService: CartService
   ) {
     this.fetchProduct();
   }
@@ -25,5 +30,10 @@ export class ProductComponent {
     this.productService
       .getSingleProduct(id)
       .subscribe((product) => (this.product = product));
+  }
+
+  addToCart(): void {
+    this.cartService.addToCart(this.product!);
+    console.log(this.cartService.getItems());
   }
 }

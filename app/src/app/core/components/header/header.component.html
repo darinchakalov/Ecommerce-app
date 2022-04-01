@@ -22,7 +22,7 @@
             [matBadge]="itemsCount"
             matBadgeColor="warn"
             matBadgeOverlap="false"
-            routerLink="/cart"
+            routerLink="/products/cart"
             ><i class="fa-solid fa-cart-shopping"></i
           ></a>
           <a mat-button [matMenuTriggerFor]="menu"
@@ -35,7 +35,10 @@
             <a class="matMenuItem" routerLink="/products/create" mat-menu-item
               >Create Product</a
             >
-            <a class="matMenuItem" routerLink="/products/mine" mat-menu-item
+            <a
+              class="matMenuItem"
+              routerLink="/products/my-products"
+              mat-menu-item
               >My Products</a
             >
             <a class="matMenuItem" mat-menu-item (click)="logout()">Logout</a>
