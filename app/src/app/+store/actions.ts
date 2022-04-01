@@ -3,4 +3,3 @@ export function incrementCounter() {
     type: 'INC',
   };
 }
-//test
