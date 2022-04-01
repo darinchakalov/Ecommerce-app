@@ -1,1 +1,27 @@
-<p>my-products works!</p>
+<div class="container">
+  <div class="content">
+    <div class="noProdicts" *ngIf="!hasProducts">
+      <h1>YOU HAVE NO PRODUCTS YET</h1>
+      <div class="button-wrapper">
+        <a routerLink="/products/create">Create new product</a>
+        <a routerLink="/products">Shop</a>
+      </div>
+    </div>
+    <div class="hasProducts" *ngIf="hasProducts">
+      <ul>
+        <li *ngFor="let product of products">
+          <div class="product-wrapper">
+            <img src="{{ product.imgUrl }}" alt="" />
+            <div class="info-wrapper">
+              <div class="product-name">{{ product.name }}</div>
+              <div class="button-wrapper">
+                <a href="">Edit</a>
+                <a href="">Delete</a>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

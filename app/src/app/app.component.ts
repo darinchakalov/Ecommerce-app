@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { incrementCounter } from './+store/actions';
 import { AuthService } from './user/services/auth.service';
+import { selectGlobalCounter } from './+store/selectors';
 
 @Component({
   selector: 'app-root',
@@ -11,11 +14,17 @@ export class AppComponent {
     return this.userService.user === undefined;
   }
 
-  constructor(private userService: AuthService) {
+  counter$ = this.store.select(selectGlobalCounter);
+
+  constructor(private userService: AuthService, private store: Store<any>) {
     this.userService.getUserInfo().subscribe({
       error: () => {
         this.userService.user = null;
       },
     });
+  }
+
+  incrementCounter(): void {
+    this.store.dispatch(incrementCounter());
   }
 }

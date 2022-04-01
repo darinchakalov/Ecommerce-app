@@ -7,9 +7,12 @@ import { IProduct } from 'src/app/shared/interfaces/product';
 export class CartService {
   items: IProduct[] = [];
 
+  itemsCount: number = 0;
+
   constructor() {}
 
   addToCart(product: any) {
+    this.itemsCount++;
     this.items.push({ ...product, num: 1 });
   }
 
@@ -19,6 +22,7 @@ export class CartService {
 
   clearCart() {
     this.items = [];
+    this.itemsCount = 0;
     return this.items;
   }
 }

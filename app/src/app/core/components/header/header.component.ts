@@ -18,9 +18,7 @@ export class HeaderComponent {
   }
 
   get itemsCount(): number {
-    console.log(this.cartService.items);
-
-    return this.cartService.items.length;
+    return this.cartService.itemsCount;
   }
 
   constructor(

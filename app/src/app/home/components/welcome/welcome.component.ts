@@ -10,8 +10,6 @@ export class WelcomeComponent {
 
   scroll(selector: string) {
     const element = document.querySelector(selector);
-    console.log(element);
-
     element ? element.scrollIntoView({ behavior: 'smooth' }) : null;
   }
 }

@@ -1,0 +1,100 @@
+.content {
+  width: 80%;
+  margin: auto;
+}
+
+.noProdicts {
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.noProdicts h1 {
+  text-align: center;
+}
+
+.noProdicts .button-wrapper {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  justify-content: center;
+}
+
+.noProdicts .button-wrapper a {
+  background-color: rgb(52, 84, 203);
+  color: white;
+  width: 20%;
+  text-align: center;
+  padding: 1rem;
+  border-radius: 10px;
+  text-decoration: none;
+}
+
+.noProdicts .button-wrapper a:hover {
+  color: rgb(52, 84, 203);
+  background-color: white;
+  border: 2px solid rgb(52, 84, 203);
+}
+
+.product-wrapper {
+  /* width: 10rem; */
+  height: 10rem;
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  align-items: center;
+}
+
+.product-wrapper img {
+  width: 40%;
+  height: 100%;
+  object-fit: cover;
+}
+
+li {
+  list-style: none;
+  margin: 1rem;
+  border: 2px solid gray;
+  border-radius: 5px;
+  padding: 1rem;
+  width: 30%;
+}
+
+.product-name {
+  font-size: 1.5rem;
+}
+
+.product-wrapper .button-wrapper {
+    width: 100%;
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.product-wrapper .button-wrapper a {
+  background-color: rgb(52, 84, 203);
+  color: white;
+  width: 100%;
+  text-align: center;
+  padding: 1rem;
+  border-radius: 10px;
+  text-decoration: none;
+}
+
+.product-wrapper .button-wrapper a:hover {
+  color: rgb(52, 84, 203);
+  background-color: white;
+  border: 2px solid rgb(52, 84, 203);
+}
+
+.info-wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}

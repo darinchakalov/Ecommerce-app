@@ -34,6 +34,5 @@ export class ProductComponent {
 
   addToCart(): void {
     this.cartService.addToCart(this.product!);
-    console.log(this.cartService.getItems());
   }
 }

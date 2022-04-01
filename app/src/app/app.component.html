@@ -3,6 +3,10 @@
 </div>
 
 <div *ngIf="!isAuthenticating" class="container">
+  <div>
+    {{counter$ | async}}
+    <button (click)="incrementCounter()">Increase</button>
+  </div>
   <app-header></app-header>
   <div class="content">
     <router-outlet></router-outlet>

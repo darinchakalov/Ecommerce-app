@@ -30,8 +30,18 @@ function getSingleProduct(req, res, next) {
 		.catch(next);
 }
 
+function getMyProducts(req, res, next) {
+	const { _id: userId } = req.user;
+
+	productModel
+		.find({ userId: userId })
+		.then((products) => res.json(products))
+		.catch(next);
+}
+
 module.exports = {
 	createProduct,
 	getAllProducts,
 	getSingleProduct,
+	getMyProducts,
 };

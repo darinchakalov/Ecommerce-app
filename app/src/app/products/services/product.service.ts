@@ -20,4 +20,8 @@ export class ProductService {
   getSingleProduct(id: string) {
     return this.http.get<IProduct>(`/api/products/${id}`);
   }
+
+  getMyProducts() {
+    return this.http.get<IProduct[]>(`/api/products/my-products`);
+  }
 }
