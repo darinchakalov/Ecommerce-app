@@ -33,3 +33,17 @@ h2 {
 img {
   max-width: 289px;
 }
+
+.button-wrapper{
+  display: flex;
+  gap: 1rem;
+}
+
+.button-wrapper a {
+  background-color: rgb(52, 84, 203);
+  color: white;
+  padding: 1rem;
+  border-radius: 5px;
+  width: 100%;
+  text-align: center;
+}
