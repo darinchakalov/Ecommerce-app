@@ -3,10 +3,11 @@
   height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
 }
 
 .wrapper {
+  margin-top: 2rem;
   background-color: white;
   width: 60%;
   height: 60%;
@@ -29,6 +30,6 @@ h2 {
   text-align: center;
 }
 
-img{
-    max-width: 289px;
+img {
+  max-width: 289px;
 }

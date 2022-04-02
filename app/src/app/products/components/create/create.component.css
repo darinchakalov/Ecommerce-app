@@ -3,16 +3,18 @@
   height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
 }
 
 .wrapper {
+  margin-top: 2rem;
   background-color: white;
   width: 60%;
-  /* height: 60%; */
+  height: 80%;
   display: flex;
   justify-content: space-around;
   align-items: center;
+
   border-radius: 10px;
   box-shadow: 5px 5px 5px grey;
 }
