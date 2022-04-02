@@ -8,10 +8,10 @@
     </div>
     <div class="data-wrapper">
       <h2>{{ user!.username | titlecase }}`s account</h2>
-      <p>You have created {{productsCount}} products. </p>
+      <p>You have created {{ productsCount }} products.</p>
       <div class="button-wrapper">
-        <a>Create more</a>
-        <a>View my products</a>
+        <a routerLink="/products/create">Create more</a>
+        <a routerLink="/products/my-products">View my products</a>
       </div>
     </div>
   </div>

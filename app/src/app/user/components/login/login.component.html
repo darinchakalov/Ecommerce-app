@@ -7,9 +7,33 @@
       <h2>Log in to your account</h2>
       <form #form="ngForm" (ngSubmit)="login()">
         <label for="email">Email</label>
-        <input type="email" name="email" ngModel />
+        <input
+          type="email"
+          name="email"
+          ngModel
+          required
+          email
+          #emailInput="ngModel"
+        />
+        <ng-container *ngIf="emailInput.touched">
+          <p *ngIf="emailInput.errors?.['required']" class="error">
+            Email is required!
+          </p>
+          <p *ngIf="emailInput.errors?.email" class="error">
+            Email is not valid!
+          </p>
+        </ng-container>
         <label for="password">Password</label>
-        <input type="password" name="password" ngModel />
+        <input
+          type="password"
+          name="password"
+          ngModel
+          required
+          #passwordInput="ngModel"
+        />
+        <div *ngIf="passwordInput.invalid && passwordInput.touched">
+          Password is required!
+        </div>
         <button>Login</button>
       </form>
     </div>
