@@ -7,13 +7,52 @@
       <h2>Create your new account</h2>
       <form #form="ngForm" (ngSubmit)="register()" method="post">
         <label for="username">Username</label>
-        <input type="text" name="username" ngModel />
+        <input
+          type="text"
+          name="username"
+          ngModel
+          required
+          minlength="4"
+          #nameInput="ngModel"
+        />
         <label for="email">Email</label>
-        <input type="email" name="email" ngModel />
+        <input
+          type="email"
+          name="email"
+          ngModel
+          required
+          email
+          #emailInput="ngModel"
+        />
         <label for="password">Password</label>
-        <input type="password" name="password" ngModel />
+        <input
+          type="password"
+          name="password"
+          ngModel
+          required
+          minlength="5"
+          #passInput="ngModel"
+        />
         <label for="repass">Repeat Password</label>
-        <input type="password" name="repass" ngModel />
+        <input
+          type="password"
+          name="repass"
+          ngModel
+          required
+          minlength="5"
+          #repassInput="ngModel"
+          appPassMatchValidator
+          pass="testt"
+        />
+        <ng-container *ngIf="repassInput.touched">
+          <p *ngIf="repassInput.errors?.required" class="error">
+            Repeat password is required!
+          </p>
+          <p *ngIf="repassInput.errors?.passNoMatch" class="error">
+            Repeat Password does not match password!
+          </p>
+        </ng-container>
+
         <button>Register</button>
       </form>
     </div>
