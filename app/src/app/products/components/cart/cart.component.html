@@ -1,4 +1,5 @@
-<p>cart works!</p>
-<div *ngFor="let item of (items$ | async) as items">
-  <div>{{ item | json }}</div>
+<div class="content">
+  <div *ngFor="let item of items$ | async as items">
+    <div>{{ item | json }}</div>
+  </div>
 </div>

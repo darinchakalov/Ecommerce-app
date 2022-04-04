@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { IProduct } from 'src/app/shared/interfaces/product';
@@ -18,6 +18,8 @@ export class ProductComponent {
     return this.cartService.getItems();
   }
 
+  isAdded: boolean = false;
+
   constructor(
     private productService: ProductService,
     private activatedRoute: ActivatedRoute,
@@ -36,13 +38,12 @@ export class ProductComponent {
   }
 
   addToCart(): void {
-    // this.cartService.addToCart(this.product!);
     this.store.dispatch(addItem({ item: this.product }));
     this.store.dispatch(incrementCounter());
+    this.isAddedHandler();
+  }
 
-    // this.store.subscribe(function () {
-    //   // localStorage.clear();
-    //   localStorage.setItem('state', JSON.stringify({ test: 'the test1' }));
-    // });
+  isAddedHandler() {
+    this.isAdded === false ? (this.isAdded = true) : (this.isAdded = false);
   }
 }

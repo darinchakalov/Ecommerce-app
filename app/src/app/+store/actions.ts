@@ -9,3 +9,5 @@ export const addItem = createAction(
   `${namespace} add item`,
   props<{ item: IProduct }>()
 );
+
+export const clearCart = createAction(`${namespace} clear cart`);

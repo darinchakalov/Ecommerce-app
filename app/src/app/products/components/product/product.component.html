@@ -1,4 +1,13 @@
 <div class="container">
+  <div class="isAdded" *ngIf="isAdded">
+    <div class="addedText">
+      “{{ product?.name }}” has been added to your cart.
+    </div>
+    <div class="added-buttons-wrapper">
+      <a routerLink="/products/cart">View Cart</a>
+      <a (click)="isAddedHandler()">Close</a>
+    </div>
+  </div>
   <div class="content">
     <div class="image-wrapper">
       <img src="{{ product?.imgUrl }}" alt="" />
