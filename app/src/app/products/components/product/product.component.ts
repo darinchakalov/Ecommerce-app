@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { IProduct } from 'src/app/shared/interfaces/product';
 import { CartService } from '../../services/cart.service';
 import { ProductService } from '../../services/product.service';
+import { addItem, incrementCounter } from 'src/app/+store/actions';
 
 @Component({
   selector: 'app-product',
@@ -10,7 +12,7 @@ import { ProductService } from '../../services/product.service';
   styleUrls: ['./product.component.css'],
 })
 export class ProductComponent {
-  product: IProduct | undefined;
+  product!: IProduct;
 
   get items() {
     return this.cartService.getItems();
@@ -19,7 +21,8 @@ export class ProductComponent {
   constructor(
     private productService: ProductService,
     private activatedRoute: ActivatedRoute,
-    private cartService: CartService
+    private cartService: CartService,
+    private store: Store
   ) {
     this.fetchProduct();
   }
@@ -33,6 +36,8 @@ export class ProductComponent {
   }
 
   addToCart(): void {
-    this.cartService.addToCart(this.product!);
+    // this.cartService.addToCart(this.product!);
+    this.store.dispatch(addItem({ item: this.product }));
+    this.store.dispatch(incrementCounter());
   }
 }

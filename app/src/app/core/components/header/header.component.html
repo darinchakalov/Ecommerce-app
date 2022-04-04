@@ -12,6 +12,9 @@
         <a mat-button routerLink="/products">Shop</a>
         <a mat-button routerLink="/contact">Contact</a>
       </nav>
+      <div class="hidden" #count>
+        {{ counter$ | async }}
+      </div>
     </div>
     <div class="mini-navbar-wrap">
       <div class="mini-navbar">
@@ -19,7 +22,7 @@
           <!-- <mat-icon matBadge="15" matBadgeColor="warn">Cart</mat-icon> -->
           <a
             mat-button
-            [matBadge]="itemsCount"
+            [matBadge]="count.textContent"
             matBadgeColor="warn"
             matBadgeOverlap="false"
             routerLink="/products/cart"

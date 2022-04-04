@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { CartService } from 'src/app/products/services/cart.service';
 import { AuthService } from 'src/app/user/services/auth.service';
+import { selectGlobalCounter } from 'src/app/+store/selectors';
 
 @Component({
   selector: 'app-header',
@@ -17,14 +19,13 @@ export class HeaderComponent {
     return this.userService.user?.username || '';
   }
 
-  get itemsCount(): number {
-    return this.cartService.itemsCount;
-  }
+  counter$ = this.store.select(selectGlobalCounter);
 
   constructor(
     private userService: AuthService,
     private router: Router,
-    private cartService: CartService
+    private cartService: CartService,
+    private store: Store<any>
   ) {}
 
   logout(): void {

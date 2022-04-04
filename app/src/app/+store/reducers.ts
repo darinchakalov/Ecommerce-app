@@ -1,19 +1,21 @@
-import { createReducer, on } from "@ngrx/store";
-import { incrementCounter } from "./actions";
+import { createReducer, on } from '@ngrx/store';
+import { addItem, incrementCounter } from './actions';
 
 export interface IGlobalState {
   readonly counter: number;
-  readonly value: any;
-  readonly users: any[] | null;
+  readonly items: any[];
 }
 
 const initialState: IGlobalState = {
   counter: 0,
-  value: null,
-  users: null,
+  items: [],
 };
 
 export const globalReducer = createReducer(
   initialState,
-  on(incrementCounter, (state) => ({ ...state, counter: state.counter + 1 }))
+  on(incrementCounter,(state) => ({ ...state, counter: state.counter + 1 })),
+  on(addItem, (state, { item }) => ({
+    ...state,
+    items: [...state.items, { content: item }],
+  }))
 );
