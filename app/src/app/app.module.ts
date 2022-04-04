@@ -15,14 +15,25 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { reducers } from './+store';
 import { localStorageSync } from 'ngrx-store-localstorage';
 
-// const reducer: ActionReducerMap<IState> = { counter, items };
-
 export function localStorageSyncReducer(
   reducer: ActionReducer<any>
 ): ActionReducer<any> {
-  return localStorageSync({ keys: ['todos'] })(reducer);
+  return localStorageSync({ keys: ['global'], rehydrate: true })(reducer);
 }
-const metaReducers: Array<MetaReducer<any, any>> = [localStorageSyncReducer];
+
+export function debug(reducer: ActionReducer<any>): ActionReducer<any> {
+  return function (state, action) {
+    console.log('state', state);
+    console.log('action', action);
+
+    return reducer(state, action);
+  };
+}
+
+const metaReducers: Array<MetaReducer<any, any>> = [
+  debug,
+  localStorageSyncReducer,
+];
 
 @NgModule({
   declarations: [AppComponent, NotFoundComponent],

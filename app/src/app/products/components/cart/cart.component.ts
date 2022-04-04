@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { selectGlobalItems } from 'src/app/+store/selectors';
 import { IProduct } from 'src/app/shared/interfaces/product';
 import { CartService } from '../../services/cart.service';
 
@@ -9,8 +11,10 @@ import { CartService } from '../../services/cart.service';
 })
 export class CartComponent {
   items: IProduct[] = [];
-  
-  constructor(private cartService: CartService) {
+
+  items$ = this.store.select(selectGlobalItems);
+
+  constructor(private cartService: CartService, private store: Store<any>) {
     this.getItems();
   }
 

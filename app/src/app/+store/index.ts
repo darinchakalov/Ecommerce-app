@@ -8,3 +8,4 @@ export interface IState {
 export const reducers: ActionReducerMap<IState> = {
   global: globalReducer
 }
+

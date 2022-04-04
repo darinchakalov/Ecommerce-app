@@ -7,3 +7,8 @@ export const selectGlobalCounter = createSelector(
   selectGlobal,
   (state) => state.counter
 );
+
+export const selectGlobalItems = createSelector(
+  selectGlobal,
+  (state) => state.items
+);
