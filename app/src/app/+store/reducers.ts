@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import { addItem, clearCart, incrementCounter } from './actions';
+import { addItem, clearGlobalState, incrementCounter } from './actions';
 
 export interface IGlobalState {
   readonly counter: number;
@@ -18,5 +18,5 @@ export const globalReducer = createReducer(
     ...state,
     items: [...state.items, { content: item }],
   })),
-  on(clearCart, () => initialState)
+  on(clearGlobalState, () => initialState)
 );

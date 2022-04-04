@@ -10,4 +10,4 @@ export const addItem = createAction(
   props<{ item: IProduct }>()
 );
 
-export const clearCart = createAction(`${namespace} clear cart`);
+export const clearGlobalState = createAction(`${namespace} clear global state`);
