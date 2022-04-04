@@ -1,8 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { selectGlobalItems } from 'src/app/+store/selectors';
-import { IProduct } from 'src/app/shared/interfaces/product';
-import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-cart',
@@ -10,15 +8,10 @@ import { CartService } from '../../services/cart.service';
   styleUrls: ['./cart.component.css'],
 })
 export class CartComponent {
-  items: IProduct[] = [];
-
+  items: any;
   items$ = this.store.select(selectGlobalItems);
 
-  constructor(private cartService: CartService, private store: Store<any>) {
-    this.getItems();
-  }
+  constructor(private store: Store<any>) {}
 
-  getItems(): void {
-    this.items = this.cartService.getItems();
-  }
+  getState = localStorage.getItem('global');
 }

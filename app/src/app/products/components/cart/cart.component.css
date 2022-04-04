@@ -1,0 +1,39 @@
+.content {
+  width: 60%;
+  margin: auto;
+  margin-top: 1rem;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.5rem;
+}
+
+.empty {
+  background-color: black;
+  color: white;
+  padding: 1rem;
+  width: 40%;
+}
+
+.no-products {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.no-products a {
+  background-color: rgb(52, 84, 203);
+  color: white;
+  padding: 1rem;
+  width: 20%;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.hasProducts {
+  border: 3px solid grey;
+  border-radius: 5px;
+  padding: 1rem;
+}

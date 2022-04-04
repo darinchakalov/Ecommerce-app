@@ -21,19 +21,7 @@ export function localStorageSyncReducer(
   return localStorageSync({ keys: ['global'], rehydrate: true })(reducer);
 }
 
-export function debug(reducer: ActionReducer<any>): ActionReducer<any> {
-  return function (state, action) {
-    console.log('state', state);
-    console.log('action', action);
-
-    return reducer(state, action);
-  };
-}
-
-const metaReducers: Array<MetaReducer<any, any>> = [
-  debug,
-  localStorageSyncReducer,
-];
+const metaReducers: Array<MetaReducer<any, any>> = [localStorageSyncReducer];
 
 @NgModule({
   declarations: [AppComponent, NotFoundComponent],
