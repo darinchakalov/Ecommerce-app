@@ -22,7 +22,7 @@ export class ProductComponent {
     private productService: ProductService,
     private activatedRoute: ActivatedRoute,
     private cartService: CartService,
-    private store: Store
+    private store: Store<any>
   ) {
     this.fetchProduct();
   }
@@ -39,5 +39,10 @@ export class ProductComponent {
     // this.cartService.addToCart(this.product!);
     this.store.dispatch(addItem({ item: this.product }));
     this.store.dispatch(incrementCounter());
+
+    // this.store.subscribe(function () {
+    //   // localStorage.clear();
+    //   localStorage.setItem('state', JSON.stringify({ test: 'the test1' }));
+    // });
   }
 }

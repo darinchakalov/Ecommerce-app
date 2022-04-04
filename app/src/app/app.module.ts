@@ -10,9 +10,19 @@ import { HomeModule } from './home/home.module';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AboutModule } from './about/about.module';
-import { StoreModule } from '@ngrx/store';
+import { ActionReducer, MetaReducer, StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { reducers } from './+store';
+import { localStorageSync } from 'ngrx-store-localstorage';
+
+// const reducer: ActionReducerMap<IState> = { counter, items };
+
+export function localStorageSyncReducer(
+  reducer: ActionReducer<any>
+): ActionReducer<any> {
+  return localStorageSync({ keys: ['todos'] })(reducer);
+}
+const metaReducers: Array<MetaReducer<any, any>> = [localStorageSyncReducer];
 
 @NgModule({
   declarations: [AppComponent, NotFoundComponent],
@@ -25,7 +35,7 @@ import { reducers } from './+store';
     AboutModule,
     HttpClientModule,
     AppRoutingModule,
-    StoreModule.forRoot(reducers),
+    StoreModule.forRoot(reducers, { metaReducers }),
     StoreDevtoolsModule.instrument({}),
   ],
   providers: [],
