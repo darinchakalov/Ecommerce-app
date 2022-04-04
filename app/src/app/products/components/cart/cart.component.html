@@ -1,21 +1,17 @@
 <div class="content">
   <h1>CART</h1>
-  <div class="no-products" *ngIf="!getState">
-    <div class="empty">
-      <i class="fa-solid fa-cart-shopping"></i> Your cart is currently empty.
-    </div>
-    <a routerLink="/products">Return to shop</a>
-  </div>
-  <div class="hasProducts" *ngIf="getState" items="items$ | async">
-    <div *ngFor="let item of items">
-      {{ item }}
-    </div>
-  </div>
-  <div *ngIf="(items$ | async) as items">
-    <div *ngIf="items.length > 0">
+  <div *ngIf="items$ | async as items">
+    <div class="hasProducts" *ngIf="items.length > 0">
       <div *ngFor="let item of items">
         <div>{{ item }}</div>
       </div>
     </div>
+    <div class="no-products" *ngIf="items.length === 0">
+      <div class="empty">
+        <i class="fa-solid fa-cart-shopping"></i> Your cart is currently empty.
+      </div>
+      <a routerLink="/products">Return to shop</a>
+    </div>
   </div>
+  <a (click)="emptyCart()" class="empty-cart">Empty cart</a>
 </div>

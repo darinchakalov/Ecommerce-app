@@ -19,4 +19,6 @@ export class ProductsComponent {
       .getAllProducts()
       .subscribe((products) => (this.products = products));
   }
+
+  
 }
