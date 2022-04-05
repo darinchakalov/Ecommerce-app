@@ -5,6 +5,7 @@ import { IProduct } from 'src/app/shared/interfaces/product';
 import { CartService } from '../../services/cart.service';
 import { ProductService } from '../../services/product.service';
 import { addItem, incrementCounter } from 'src/app/+store/actions';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-product',
@@ -40,7 +41,14 @@ export class ProductComponent {
   addToCart(): void {
     this.store.dispatch(addItem({ item: this.product }));
     this.store.dispatch(incrementCounter());
-    this.isAddedHandler();
+    // this.isAddedHandler();
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'Product was added to cart',
+      showConfirmButton: false,
+      timer: 1500,
+    });
   }
 
   isAddedHandler() {

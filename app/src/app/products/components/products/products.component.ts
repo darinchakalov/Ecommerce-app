@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { addItem, incrementCounter } from 'src/app/+store/actions';
 import { IProduct } from 'src/app/shared/interfaces/product';
+import Swal from 'sweetalert2';
 import { ProductService } from '../../services/product.service';
 
 @Component({
@@ -10,7 +13,7 @@ import { ProductService } from '../../services/product.service';
 export class ProductsComponent {
   products: IProduct[] | undefined;
 
-  constructor(private productService: ProductService) {
+  constructor(private productService: ProductService, private store: Store) {
     this.fetchAllProducts();
   }
 
@@ -20,5 +23,15 @@ export class ProductsComponent {
       .subscribe((products) => (this.products = products));
   }
 
-  
+  addToCart(product: IProduct): void {
+    this.store.dispatch(addItem({ item: product }));
+    this.store.dispatch(incrementCounter());
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'Product was added to cart',
+      showConfirmButton: false,
+      timer: 1500,
+    });
+  }
 }

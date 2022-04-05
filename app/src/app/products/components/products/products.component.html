@@ -5,6 +5,7 @@
         <img src="{{ product.imgUrl }}" alt="" />
       </div>
       <div class="button-wrapper">
+        <a (click)="addToCart(product)">Add to cart</a>
         <a [routerLink]="['/products', product._id]">Details</a>
       </div>
       <div class="info-wrapper">
