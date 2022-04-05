@@ -39,9 +39,20 @@ function getMyProducts(req, res, next) {
 		.catch(next);
 }
 
+function deleteProduct(req, res, next) {
+	const { productId } = req.params;
+	productModel
+		.findByIdAndDelete({ _id: productId })
+		.then((deleted) => {
+			res.status(200).json(deleted);
+		})
+		.catch(next);
+}
+
 module.exports = {
 	createProduct,
 	getAllProducts,
 	getSingleProduct,
 	getMyProducts,
+	deleteProduct,
 };

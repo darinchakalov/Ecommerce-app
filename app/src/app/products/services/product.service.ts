@@ -24,4 +24,8 @@ export class ProductService {
   getMyProducts() {
     return this.http.get<IProduct[]>(`/api/products/my-products`);
   }
+
+  deleteProduct(id: string) {
+    return this.http.delete<IProduct>(`/api/products/${id}`);
+  }
 }

@@ -10,4 +10,6 @@ router.get("/", productController.getAllProducts);
 router.get("/my-products", auth(), productController.getMyProducts);
 router.get("/:productId", productController.getSingleProduct);
 
+router.delete("/:productId", auth(), productController.deleteProduct);
+
 module.exports = router;

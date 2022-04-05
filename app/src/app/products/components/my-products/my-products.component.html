@@ -15,7 +15,7 @@
           </div>
           <div class="button-wrapper">
             <a [routerLink]="['/products/edit', product._id]">Edit</a>
-            <a [routerLink]="['/products/delete', product._id]">Delete</a>
+            <a (click)="deleteProduct(product._id)">Delete</a>
           </div>
           <div class="info-wrapper">
             <h3>{{ product.name }}</h3>
@@ -26,6 +26,5 @@
         </div>
       </ng-container>
     </div>
-    
   </div>
 </div>
