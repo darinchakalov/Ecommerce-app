@@ -9,6 +9,7 @@ import { ProductComponent } from './components/product/product.component';
 import { MyProductsComponent } from './components/my-products/my-products.component';
 import { CartComponent } from './components/cart/cart.component';
 import { CartService } from './services/cart.service';
+import { EditComponent } from './components/edit/edit.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { CartService } from './services/cart.service';
     ProductComponent,
     MyProductsComponent,
     CartComponent,
+    EditComponent,
   ],
   imports: [CommonModule, ProductRoutingModule, FormsModule],
   providers: [ProductService, CartService],

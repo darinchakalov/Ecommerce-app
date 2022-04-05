@@ -1,7 +1,6 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/user/services/auth.service';
 import Swal from 'sweetalert2';
 import { ProductService } from '../../services/product.service';
 
@@ -13,11 +12,7 @@ import { ProductService } from '../../services/product.service';
 export class CreateComponent {
   @ViewChild(NgForm) createForm!: NgForm;
 
-  constructor(
-    private productService: ProductService,
-    private userService: AuthService,
-    private router: Router
-  ) {}
+  constructor(private productService: ProductService, private router: Router) {}
 
   create(): void {
     this.productService.createNewProduct(this.createForm?.value).subscribe({
@@ -28,7 +23,7 @@ export class CreateComponent {
         Swal.fire({
           icon: 'error',
           title: 'Oops...',
-          text: `$${err}`,
+          text: `${err.error.message}`,
           // footer: '<a href="">Why do I have this issue?</a>',
         });
       },

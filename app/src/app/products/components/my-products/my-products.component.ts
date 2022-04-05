@@ -45,7 +45,7 @@ export class MyProductsComponent {
             Swal.fire({
               icon: 'error',
               title: 'Oops...',
-              text: `${err}`,
+              text: `${err.error.message}`,
               // footer: '<a href="">Why do I have this issue?</a>',
             });
           },

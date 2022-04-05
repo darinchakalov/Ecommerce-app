@@ -49,10 +49,26 @@ function deleteProduct(req, res, next) {
 		.catch(next);
 }
 
+function editProduct(req, res, next) {
+	const product = req.body;
+	const { productId } = req.params;
+	productModel
+		.findByIdAndUpdate(productId, product)
+		.then((updated) => {
+			if (updated) {
+				res.status(200).json(updated);
+			} else {
+				res.status(401).json({ message: `Not allowed!` });
+			}
+		})
+		.catch(next);
+}
+
 module.exports = {
 	createProduct,
 	getAllProducts,
 	getSingleProduct,
 	getMyProducts,
 	deleteProduct,
+	editProduct,
 };

@@ -1,0 +1,39 @@
+<div class="content">
+  <div class="wrapper">
+    <div class="form-wrapper">
+      <h2>Edit product</h2>
+      <form #form="ngForm" (ngSubmit)="edit()">
+        <label for="email">Product name</label>
+        <input type="text" name="name" ngModel value="{{ product?.name }}" />
+        <label for="price">Price</label>
+        <input
+          type="number"
+          name="price"
+          ngModel
+          value="{{ product?.price }}"
+        />
+        <label for="quantity">Quantity</label>
+        <input
+          type="number"
+          name="quantity"
+          ngModel
+          value="{{ product?.quantity }}"
+        />
+        <label for="imgUrl">Image Url</label>
+        <input type="url" name="imgUrl" ngModel value="{{ product?.imgUrl }}" />
+        <label for="description">Description</label>
+        <textarea
+          name="description"
+          cols="30"
+          rows="10"
+          ngModel
+          value="{{ product?.description }}"
+        ></textarea>
+        <div class="button-wrapper">
+          <button>Edit</button>
+          <button>Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
