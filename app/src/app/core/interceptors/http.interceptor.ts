@@ -9,6 +9,7 @@ import {
 import { catchError, Observable } from 'rxjs';
 
 import { environment } from 'src/environments/environment';
+import Swal from 'sweetalert2';
 
 const API_URL = environment.API_URL;
 
@@ -32,7 +33,12 @@ export class MyHttpInterceptor implements HttpInterceptor {
     }
     return reqStream$.pipe(
       catchError((err) => {
-        console.log(err);
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: `$${err}`,
+          // footer: '<a href="">Why do I have this issue?</a>',
+        });
         throw new Error(err);
       })
     );

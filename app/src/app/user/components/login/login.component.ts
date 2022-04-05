@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -19,7 +20,12 @@ export class LoginComponent {
         this.router.navigate(['/']);
       },
       error: (err) => {
-        console.log(err);
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: `$${err}`,
+          // footer: '<a href="">Why do I have this issue?</a>',
+        });
       },
     });
   }

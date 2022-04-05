@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/user/services/auth.service';
+import Swal from 'sweetalert2';
 import { ProductService } from '../../services/product.service';
 
 @Component({
@@ -24,7 +25,12 @@ export class CreateComponent {
         this.router.navigate(['/products']);
       },
       error: (err) => {
-        console.log(err);
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: `$${err}`,
+          // footer: '<a href="">Why do I have this issue?</a>',
+        });
       },
     });
   }

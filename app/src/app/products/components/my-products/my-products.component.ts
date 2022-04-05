@@ -12,8 +12,6 @@ export class MyProductsComponent {
   products: IProduct[] = [];
 
   get hasProducts(): boolean {
-    console.log(this.products?.length);
-
     return this.products?.length > 0;
   }
 
