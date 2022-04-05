@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { clearGlobalState, removeItem } from 'src/app/+store/actions';
 import { selectGlobalItems } from 'src/app/+store/selectors';
+import { IProduct } from 'src/app/shared/interfaces/product';
 
 @Component({
   selector: 'app-cart',
@@ -11,10 +13,22 @@ export class CartComponent {
   items: any;
   items$ = this.store.select(selectGlobalItems);
 
-  constructor(private store: Store<any>) {}
+  constructor(private store: Store<any>) {
+  }
+
+  getTotal() {
+    if (localStorage.getItem('global')) {
+      let products = JSON.parse(localStorage.getItem('global')!).items;
+      let prices = products.map((x: any) => x.price);
+      return prices.reduce((prev: number, cur: number) => prev + cur, 0);
+    }
+  }
 
   emptyCart(): void {
-    localStorage.clear();
-    location.reload();
+    this.store.dispatch(clearGlobalState());
+  }
+
+  removeItemFromCart(item: IProduct): void {
+    this.store.dispatch(removeItem({ item }));
   }
 }

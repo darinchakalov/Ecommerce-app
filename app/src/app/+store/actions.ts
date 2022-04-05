@@ -10,4 +10,9 @@ export const addItem = createAction(
   props<{ item: IProduct }>()
 );
 
+export const removeItem = createAction(
+  `${namespace} remove item`,
+  props<{ item: IProduct }>()
+);
+
 export const clearGlobalState = createAction(`${namespace} clear global state`);

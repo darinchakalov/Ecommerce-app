@@ -2,18 +2,41 @@
   <h1>CART</h1>
   <div *ngIf="items$ | async as items">
     <div class="hasProducts" *ngIf="items.length > 0">
-      <div *ngFor="let item of items">
-        <div class="product-wrapper">
-          <img src="{{ item.content.imgUrl }}" alt="" />
-          <div class="product-name">{{ item.content.name }}</div>
-          <div class="product-price">{{ item.content.price | currency }}</div>
-        </div>
-      </div>
-      <div class="total">Total:</div>
+      <table>
+        <tr>
+          <th>Product</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Subtotal</th>
+        </tr>
+
+        <tr *ngFor="let item of items">
+          <td class="product-info">
+            <a (click)="removeItemFromCart(item)">
+              <i class="fa-solid fa-circle-xmark"></i>
+            </a>
+            <img src="{{ item.imgUrl }}" alt="" />
+            <div class="product-name">{{ item.name }}</div>
+          </td>
+          <td>{{ item.price | currency }}</td>
+          <td>1</td>
+          <td>{{ item.price | currency }}</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>Total: {{ getTotal() | currency }}</td>
+        </tr>
+      </table>
       <div class="button-wrapper">
-        <a>Finish order</a>
-        <a>Continue shopping</a>
-        <a (click)="emptyCart()" class="empty-cart">Empty cart</a>
+        <div class="cart-buttons">
+          <a routerLink="/products">Continue shopping</a>
+          <a (click)="emptyCart()" class="empty-cart">Empty cart</a>
+        </div>
+        <div class="finish-button">
+          <a class="finish">Finish order</a>
+        </div>
       </div>
     </div>
     <div *ngIf="items.length > 0"></div>

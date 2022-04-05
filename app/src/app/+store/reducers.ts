@@ -1,9 +1,15 @@
 import { createReducer, on } from '@ngrx/store';
-import { addItem, clearGlobalState, incrementCounter } from './actions';
+import { IProduct } from '../shared/interfaces/product';
+import {
+  addItem,
+  clearGlobalState,
+  incrementCounter,
+  removeItem,
+} from './actions';
 
 export interface IGlobalState {
   readonly counter: number;
-  readonly items: any[];
+  readonly items: IProduct[];
 }
 
 const initialState: IGlobalState = {
@@ -16,7 +22,16 @@ export const globalReducer = createReducer(
   on(incrementCounter, (state) => ({ ...state, counter: state.counter + 1 })),
   on(addItem, (state, { item }) => ({
     ...state,
-    items: [...state.items, { content: item }],
+    items: [...state.items, item],
   })),
-  on(clearGlobalState, () => initialState)
+  on(removeItem, (state, { item }) => ({
+    ...state,
+    items: [...state.items.filter((x) => x !== item)],
+    counter: state.counter - 1,
+  })),
+  on(clearGlobalState, (state) => ({
+    ...state,
+    items: [],
+    counter: 0,
+  }))
 );

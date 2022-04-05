@@ -23,13 +23,14 @@ h1 {
   gap: 1rem;
 }
 
- a {
+.button-wrapper a {
   background-color: rgb(52, 84, 203);
   color: white;
   padding: 1rem;
   width: 15%;
   text-align: center;
   border-radius: 5px;
+  text-decoration: none;
 }
 
 .hasProducts {
@@ -50,7 +51,7 @@ h1 {
   /* position: absolute; */
 }
 
-.product-wrapper{
+.product-wrapper {
   display: flex;
   gap: 1rem;
   align-items: center;
@@ -60,7 +61,30 @@ h1 {
   width: 100px;
 }
 
-.button-wrapper{
+.button-wrapper {
   display: flex;
   gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+table img{
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+table * {
+  text-align: center;
+}
+.product-info {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.cart-buttons{
+  display: flex;
+  gap: 1rem;
+  width: 80%;
 }
