@@ -1,0 +1,22 @@
+.wrapper{
+    background-image: url('src/assets/joshua-rawson-harris-bMMOBVp6KQU-unsplash.webp');
+    background-position: center center;
+    background-size: cover;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding: 6rem;
+}
+
+h1 {
+    font-size: 2rem;
+    color: white;
+    text-align: center;
+}
+
+p {
+    color: white;
+}
