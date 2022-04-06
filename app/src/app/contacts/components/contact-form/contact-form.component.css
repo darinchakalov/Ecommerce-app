@@ -1,0 +1,44 @@
+.wrapper {
+  width: 60%;
+  margin: auto;
+}
+.content {
+  display: flex;
+  gap: 2rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+.form-wrapper {
+  width: 50%;
+}
+
+.text-wrapper {
+  width: 50%;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  gap: 1rem;
+  /* align-items: center; */
+}
+
+form input {
+  height: 2rem;
+}
+
+button {
+  background-color: rgb(52, 84, 203);
+  color: white;
+  width: 30%;
+  padding: 1rem;
+  border-radius: 5px;
+  align-self: flex-end;
+}
+
+.error{
+    color: red;
+}

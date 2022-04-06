@@ -1,0 +1,91 @@
+<div class="wrapper">
+  <div class="content">
+    <div class="form-wrapper">
+      <form #form="ngForm" (ngSubmit)="submit()">
+        <label for="name">Name*</label>
+        <input
+          type="text"
+          name="name"
+          ngModel
+          minlength="4"
+          required
+          #nameInput="ngModel"
+        />
+        <ng-container *ngIf="nameInput.touched">
+          <p *ngIf="nameInput.errors?.['required']" class="error">
+            Name is required!
+          </p>
+          <p *ngIf="nameInput.errors?.minlength" class="error">
+            Name should be at least 4 letters long!
+          </p>
+        </ng-container>
+        <label for="email">Email*</label>
+        <input
+          type="email"
+          name="email"
+          ngModel
+          email
+          required
+          #emailInput="ngModel"
+        />
+        <ng-container *ngIf="emailInput.touched">
+          <p *ngIf="emailInput.errors?.['required']" class="error">
+            Email is required!
+          </p>
+          <p *ngIf="emailInput.errors?.email" class="error">
+            Please use a valid email address!
+          </p>
+        </ng-container>
+        <label for="message">Message*</label>
+        <textarea
+          name="message"
+          id=""
+          cols="30"
+          rows="10"
+          ngModel
+          minlength="10"
+          #textInput="ngModel"
+        ></textarea>
+        <ng-container *ngIf="textInput.touched">
+          <p *ngIf="textInput.errors?.['required']" class="error">
+            Message is required!
+          </p>
+          <p *ngIf="textInput.errors?.minlength" class="error">
+            Message should be at least 4 characters long!
+          </p>
+        </ng-container>
+        <button>Submit</button>
+      </form>
+    </div>
+    <div class="text-wrapper">
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo optio
+        omnis non neque ipsa minima, atque, temporibus harum id et error vero
+        voluptate numquam sunt deserunt aspernatur, quos voluptates at. Dolore
+        non consequatur, nihil possimus, recusandae ea in dolorum distinctio
+        enim vel laborum deleniti nesciunt. Hic atque, distinctio eveniet,
+        reprehenderit delectus quas autem, rerum exercitationem dolorum quod
+        necessitatibus dolorem asperiores.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo optio
+        omnis non neque ipsa minima, atque, temporibus harum id et error vero
+        voluptate numquam sunt deserunt aspernatur, quos voluptates at. Dolore
+        non consequatur, nihil possimus, recusandae ea in dolorum distinctio
+        enim vel laborum deleniti nesciunt. Hic atque, distinctio eveniet,
+        reprehenderit delectus quas autem, rerum exercitationem dolorum quod
+        necessitatibus dolorem asperiores.
+      </p>
+      <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti
+        voluptates eveniet incidunt nostrum libero veniam unde mollitia minima
+        ipsum commodi earum labore delectus praesentium sapiente, corporis hic
+        quis, quia amet! Lorem ipsum dolor sit amet consectetur adipisicing
+        elit. Inventore labore nostrum consequuntur eos cupiditate, unde
+        voluptatum veritatis praesentium accusantium hic, eaque itaque
+        reiciendis asperiores? Excepturi veniam placeat in perspiciatis
+        repellendus.
+      </p>
+    </div>
+  </div>
+</div>
