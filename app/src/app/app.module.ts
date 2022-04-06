@@ -15,6 +15,8 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { reducers } from './+store';
 import { localStorageSync } from 'ngrx-store-localstorage';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { ContactsModule } from './contacts/contacts.module';
+import { GoogleMapsModule } from '@angular/google-maps';
 
 export function localStorageSyncReducer(
   reducer: ActionReducer<any>
@@ -33,8 +35,10 @@ const metaReducers: Array<MetaReducer<any, any>> = [localStorageSyncReducer];
     CoreModule,
     HomeModule,
     AboutModule,
+    ContactsModule,
     HttpClientModule,
     AppRoutingModule,
+    GoogleMapsModule,
     StoreModule.forRoot(reducers, { metaReducers }),
     StoreDevtoolsModule.instrument({}),
     SweetAlert2Module.forRoot(),

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AboutMainComponent } from './about/components/about-main/about-main.component';
+import { ContactMainComponent } from './contacts/components/contact-main/contact-main.component';
 import { MainComponent } from './home/components/main/main.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path: 'about',
     component: AboutMainComponent,
+  },
+  {
+    path: 'contact',
+    component: ContactMainComponent,
   },
   {
     path: '**',

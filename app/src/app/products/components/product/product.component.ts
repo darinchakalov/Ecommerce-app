@@ -15,11 +15,11 @@ import Swal from 'sweetalert2';
 export class ProductComponent {
   product!: IProduct;
 
+  id = this.activatedRoute.snapshot.params['productId'];
+
   get items() {
     return this.cartService.getItems();
   }
-
-  isAdded: boolean = false;
 
   constructor(
     private productService: ProductService,
@@ -28,13 +28,12 @@ export class ProductComponent {
     private store: Store<any>
   ) {
     this.fetchProduct();
+    console.log(this.ifExists());
   }
 
   fetchProduct(): void {
-    const id = this.activatedRoute.snapshot.params['productId'];
-
     this.productService
-      .getSingleProduct(id)
+      .getSingleProduct(this.id)
       .subscribe((product) => (this.product = product));
   }
 
@@ -51,7 +50,8 @@ export class ProductComponent {
     });
   }
 
-  isAddedHandler() {
-    this.isAdded === false ? (this.isAdded = true) : (this.isAdded = false);
+  ifExists() {
+    let items = JSON.parse(localStorage.getItem('global')!);
+    return items.items.find((x: IProduct) => x._id === this.id) ? true : false;
   }
 }
