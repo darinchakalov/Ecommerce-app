@@ -4,18 +4,78 @@
       <h2>Create a new product</h2>
       <form #form="ngForm" (ngSubmit)="create()">
         <label for="email">Product name</label>
-        <input type="text" name="name" ngModel placeholder="e.g Shirt" />
+        <input
+          type="text"
+          name="name"
+          ngModel
+          placeholder="e.g Shirt"
+          required
+          minlength="4"
+          #nameInput="ngModel"
+        />
+        <ng-container *ngIf="nameInput.touched">
+          <p *ngIf="nameInput.errors?.['required']" class="error">
+            Product name is required!
+          </p>
+          <p *ngIf="nameInput.errors?.minlength" class="error">
+            Product name should be at least 4 characters long
+          </p>
+        </ng-container>
         <label for="price">Price</label>
-        <input type="number" name="price" ngModel placeholder="e.g 79.99" />
+        <input
+          type="number"
+          name="price"
+          ngModel
+          placeholder="e.g 79.99"
+          required
+          #priceInput="ngModel"
+          min="0.50"
+        />
+        <ng-container *ngIf="nameInput.touched">
+          <p *ngIf="priceInput.errors?.['required']" class="error">
+            Product price is required!
+          </p>
+          <p *ngIf="priceInput.errors?.min" class="error">Price is too low!</p>
+        </ng-container>
         <label for="quantity">Quantity</label>
-        <input type="number" name="quantity" ngModel placeholder="e.g 2" />
+        <input
+          type="number"
+          name="quantity"
+          ngModel
+          placeholder="e.g 2"
+          required
+          min="1"
+          #quantityInput="ngModel"
+        />
+        <ng-container *ngIf="quantityInput.touched">
+          <p *ngIf="quantityInput.errors?.['required']" class="error">
+            Product quantity is required!
+          </p>
+          <p *ngIf="quantityInput.errors?.min" class="error">
+            Quantity must be at least 1
+          </p>
+        </ng-container>
         <label for="imgUrl">Image Url</label>
         <input
           type="url"
           name="imgUrl"
           ngModel
           placeholder="e.g http://images.com/image.png"
+          required
+          appImageUrlValidator
+          #imgUrlInput="ngModel"
         />
+        <ng-container *ngIf="imgUrlInput.touched">
+          <p *ngIf="imgUrlInput.errors?.['required']" class="error">
+            Product image url is required!
+          </p>
+          <p *ngIf="imgUrlInput.errors?.invalidProtocol" class="error">
+            Image url should start with 'https' or 'http'!
+          </p>
+          <p *ngIf="imgUrlInput.errors?.invalidExtention" class="error">
+            Invalid image extention!
+          </p>
+        </ng-container>
         <label for="description">Description</label>
         <textarea
           name="description"
@@ -23,7 +83,18 @@
           rows="10"
           ngModel
           placeholder="Product description"
+          required
+          minlength="10"
+          #descriptionInput="ngModel"
         ></textarea>
+        <ng-container *ngIf="descriptionInput.touched">
+          <p *ngIf="descriptionInput.errors?.['required']" class="error">
+            Product description is required!
+          </p>
+          <p *ngIf="descriptionInput.errors?.minlength" class="error">
+            Description should be at least 10 characters long!
+          </p>
+        </ng-container>
         <div class="button-wrapper">
           <button>Create</button>
           <button>Cancel</button>

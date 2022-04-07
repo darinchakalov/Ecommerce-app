@@ -4,10 +4,15 @@ import { LoaderComponent } from './components/loader/loader.component';
 
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { PassMatchDirective } from './directives/pass-match.directive';
+import { ImageUrlValidatorDirective } from './directives/image-url-validator.directive';
 
 @NgModule({
-  declarations: [LoaderComponent, PassMatchDirective],
+  declarations: [
+    LoaderComponent,
+    PassMatchDirective,
+    ImageUrlValidatorDirective,
+  ],
   imports: [CommonModule, MatProgressSpinnerModule],
-  exports: [LoaderComponent, PassMatchDirective],
+  exports: [LoaderComponent, PassMatchDirective, ImageUrlValidatorDirective],
 })
 export class SharedModule {}

@@ -9,6 +9,7 @@ import { ProductComponent } from './components/product/product.component';
 import { MyProductsComponent } from './components/my-products/my-products.component';
 import { CartComponent } from './components/cart/cart.component';
 import { EditComponent } from './components/edit/edit.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import { EditComponent } from './components/edit/edit.component';
     CartComponent,
     EditComponent,
   ],
-  imports: [CommonModule, ProductRoutingModule, FormsModule],
+  imports: [CommonModule, ProductRoutingModule, FormsModule, SharedModule],
   providers: [ProductService],
 })
 export class ProductsModule {}
