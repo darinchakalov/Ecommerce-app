@@ -1,7 +1,4 @@
 import { Component } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { incrementCounter } from './+store/actions';
-import { selectGlobalCounter } from './+store/selectors';
 import { AuthService } from './user/services/auth.service';
 
 @Component({

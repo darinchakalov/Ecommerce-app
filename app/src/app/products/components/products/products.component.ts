@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { addItem, incrementCounter } from 'src/app/+store/actions';
 import { IProduct } from 'src/app/shared/interfaces/product';
+import { AuthService } from 'src/app/user/services/auth.service';
 import Swal from 'sweetalert2';
 import { ProductService } from '../../services/product.service';
 
@@ -13,7 +14,12 @@ import { ProductService } from '../../services/product.service';
 export class ProductsComponent {
   products: IProduct[] | undefined;
 
-  constructor(private productService: ProductService, private store: Store) {
+
+  isLoggedIn() {
+    this.userService.isLoggedIn
+  }
+
+  constructor(private productService: ProductService, private store: Store, private userService: AuthService) {
     this.fetchAllProducts();
   }
 

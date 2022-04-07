@@ -14,6 +14,7 @@
           required
           minlength="4"
           #nameInput="ngModel"
+          placeholder="codemonkey12"
         />
         <label for="email">Email</label>
         <input
@@ -23,6 +24,7 @@
           required
           email
           #emailInput="ngModel"
+          placeholder="ivan@abv.bg"
         />
         <label for="password">Password</label>
         <input
@@ -32,6 +34,7 @@
           required
           minlength="5"
           #passInput="ngModel"
+          placeholder="******"
         />
         <label for="repass">Repeat Password</label>
         <input
@@ -43,6 +46,7 @@
           #repassInput="ngModel"
           appPassMatchValidator
           pass="testt"
+          placeholder="******"
         />
         <ng-container *ngIf="repassInput.touched">
           <p *ngIf="repassInput.errors?.required" class="error">

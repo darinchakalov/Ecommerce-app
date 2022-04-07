@@ -8,7 +8,7 @@
       <div class="price">Price: {{ product?.price | currency: "USD" }}</div>
       <p>{{ product?.description }}</p>
       <label for="quantity">Available quantity: {{ product?.quantity }}</label>
-      <div class="add-to-cart-wrapper">
+      <div *ngIf="isLoggedIn()" class="add-to-cart-wrapper">
         <input
           type="number"
           name="quantity"

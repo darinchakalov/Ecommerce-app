@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { IProduct } from 'src/app/shared/interfaces/product';
-import { CartService } from '../../services/cart.service';
 import { ProductService } from '../../services/product.service';
 import { addItem, incrementCounter } from 'src/app/+store/actions';
 import Swal from 'sweetalert2';
+import { AuthService } from 'src/app/user/services/auth.service';
 
 @Component({
   selector: 'app-product',
@@ -17,18 +17,17 @@ export class ProductComponent {
 
   id = this.activatedRoute.snapshot.params['productId'];
 
-  get items() {
-    return this.cartService.getItems();
+  isLoggedIn() {
+    this.userService.isLoggedIn
   }
 
   constructor(
     private productService: ProductService,
     private activatedRoute: ActivatedRoute,
-    private cartService: CartService,
-    private store: Store<any>
+    private store: Store<any>,
+    private userService: AuthService
   ) {
     this.fetchProduct();
-    console.log(this.ifExists());
   }
 
   fetchProduct(): void {
@@ -48,10 +47,5 @@ export class ProductComponent {
       showConfirmButton: false,
       timer: 1500,
     });
-  }
-
-  ifExists() {
-    let items = JSON.parse(localStorage.getItem('global')!);
-    return items.items.find((x: IProduct) => x._id === this.id) ? true : false;
   }
 }

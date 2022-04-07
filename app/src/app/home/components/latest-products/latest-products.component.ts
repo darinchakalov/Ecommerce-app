@@ -3,6 +3,7 @@ import { Store } from '@ngrx/store';
 import { addItem, incrementCounter } from 'src/app/+store/actions';
 import { ProductService } from 'src/app/products/services/product.service';
 import { IProduct } from 'src/app/shared/interfaces/product';
+import { AuthService } from 'src/app/user/services/auth.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -13,7 +14,15 @@ import Swal from 'sweetalert2';
 export class LatestProductsComponent {
   products: IProduct[] | undefined;
 
-  constructor(private productService: ProductService, private store: Store) {
+  isLoggedIn() {
+    this.userService.isLoggedIn;
+  }
+
+  constructor(
+    private productService: ProductService,
+    private store: Store,
+    private userService: AuthService
+  ) {
     this.fetchLatestProducts();
   }
 

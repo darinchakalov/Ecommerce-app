@@ -14,6 +14,7 @@
           required
           email
           #emailInput="ngModel"
+          placeholder="ivan@abg.bg"
         />
         <ng-container *ngIf="emailInput.touched">
           <p *ngIf="emailInput.errors?.['required']" class="error">
@@ -30,6 +31,7 @@
           ngModel
           required
           #passwordInput="ngModel"
+          placeholder="******"
         />
         <div *ngIf="passwordInput.invalid && passwordInput.touched">
           Password is required!

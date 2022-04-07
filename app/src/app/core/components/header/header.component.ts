@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { CartService } from 'src/app/products/services/cart.service';
 import { AuthService } from 'src/app/user/services/auth.service';
 import { selectGlobalCounter } from 'src/app/+store/selectors';
 
@@ -24,7 +23,6 @@ export class HeaderComponent {
   constructor(
     private userService: AuthService,
     private router: Router,
-    private cartService: CartService,
     private store: Store<any>
   ) {}
 
