@@ -15,8 +15,21 @@ export class CreateComponent {
   constructor(private productService: ProductService, private router: Router) {}
 
   create(): void {
+    if (this.createForm?.invalid) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'All fields are mandatory',
+      });
+      return;
+    }
     this.productService.createNewProduct(this.createForm?.value).subscribe({
       next: () => {
+        Swal.fire(
+          'Edited!',
+          'Your product has been created successfully.',
+          'success'
+        );
         this.router.navigate(['/products']);
       },
       error: (err) => {
@@ -24,9 +37,11 @@ export class CreateComponent {
           icon: 'error',
           title: 'Oops...',
           text: `${err.error.message}`,
-          // footer: '<a href="">Why do I have this issue?</a>',
         });
       },
     });
+  }
+  cancel() {
+    this.router.navigate(['/products/my-products']);
   }
 }

@@ -17,6 +17,14 @@ export class RegisterComponent {
   constructor(private userService: AuthService, private router: Router) {}
 
   register() {
+    if (this.form?.invalid) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'All fields are mandatory',
+      });
+      return;
+    }
     this.userService.register(this.form?.value).subscribe({
       next: () => {
         Swal.fire({

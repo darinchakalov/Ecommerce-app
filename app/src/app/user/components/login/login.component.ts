@@ -15,6 +15,14 @@ export class LoginComponent {
   constructor(private userService: AuthService, private router: Router) {}
 
   login(): void {
+    if (this.form?.invalid) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'All fields are mandatory',
+      });
+      return;
+    }
     this.userService.login(this.form.value).subscribe({
       next: () => {
         Swal.fire({
