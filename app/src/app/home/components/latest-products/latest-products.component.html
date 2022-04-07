@@ -2,23 +2,28 @@
   <h2>LATEST PRODUCTS</h2>
   <div class="content-wrapper">
     <ng-container *ngFor="let product of products">
-      <div class="product-wrapper">
-        <div class="image-wrapper">
-          <img src="{{ product.imgUrl }}" alt="" />
+      <ng-container *ngIf="products">
+        <div class="product-wrapper">
+          <div class="image-wrapper">
+            <img src="{{ product.imgUrl }}" alt="" />
+          </div>
+          <div class="button-wrapper">
+            <a
+              *ngIf="isLoggedIn && product.quantity > 0"
+              (click)="addToCart(product)"
+              >Add to cart</a
+            >
+            <a routerLink="/products/{{ product._id }}">Details</a>
+          </div>
+          <div class="info-wrapper">
+            <h3>{{ product.name }}</h3>
+            <span class="price">Price: ${{ product.price }}</span>
+          </div>
         </div>
-        <div class="button-wrapper">
-          <a
-            *ngIf="isLoggedIn && product.quantity > 0"
-            (click)="addToCart(product)"
-            >Add to cart</a
-          >
-          <a routerLink="/products/{{ product._id }}">Details</a>
-        </div>
-        <div class="info-wrapper">
-          <h3>{{ product.name }}</h3>
-          <span class="price">Price: ${{ product.price }}</span>
-        </div>
-      </div>
+      </ng-container>
+      <ng-container *ngIf="!products"> 
+        <app-loader></app-loader>
+      </ng-container>
     </ng-container>
   </div>
 </div>

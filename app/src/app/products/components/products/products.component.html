@@ -18,4 +18,7 @@
       </div>
     </div>
   </ng-container>
+  <ng-container *ngIf="!products">
+    <app-loader></app-loader>
+  </ng-container>
 </div>

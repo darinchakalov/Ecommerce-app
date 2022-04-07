@@ -33,9 +33,11 @@
           #passwordInput="ngModel"
           placeholder="******"
         />
-        <div *ngIf="passwordInput.invalid && passwordInput.touched">
-          Password is required!
-        </div>
+        <ng-container *ngIf="passwordInput.touched">
+          <p *ngIf="passwordInput.errors?.['required']" class="error">
+            Password is required!
+          </p>
+        </ng-container>
         <button>Login</button>
       </form>
     </div>

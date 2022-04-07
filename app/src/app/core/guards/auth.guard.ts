@@ -8,7 +8,6 @@ import {
 } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { selectUserSetter } from 'src/app/user/+store/selectors';
 
 @Injectable({
   providedIn: 'root',
@@ -29,7 +28,8 @@ export class AuthGuard implements CanActivate {
 
     if (
       typeof authenticationRequired === 'boolean' &&
-      authenticationRequired === !!this.store.select(selectUserSetter)
+      authenticationRequired ===
+        !!JSON.parse(localStorage.getItem('user')!).user
     ) {
       return true;
     }

@@ -6,6 +6,7 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
 import { BeInspiredComponent } from './components/be-inspired/be-inspired.component';
 import { ElegantComponent } from './components/elegant/elegant.component';
 import { RouterModule } from '@angular/router';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,7 @@ import { RouterModule } from '@angular/router';
     BeInspiredComponent,
     ElegantComponent,
   ],
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, SharedModule],
   exports: [MainComponent, LatestProductsComponent],
 })
 export class HomeModule {}

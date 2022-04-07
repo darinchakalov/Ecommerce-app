@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { tap } from 'rxjs/operators';
+import { clearGlobalState } from 'src/app/+store/actions';
 import { IUser } from 'src/app/shared/interfaces/user';
 import { clearUserState, setUser } from '../+store/actions';
 
@@ -50,7 +51,13 @@ export class AuthService {
     return this.http
       .post<IUser>(`/api/logout`, {})
       .pipe(
-        tap(() => ((this.user = null), this.store.dispatch(clearUserState())))
+        tap(
+          () => (
+            (this.user = null),
+            this.store.dispatch(clearUserState()),
+            this.store.dispatch(clearGlobalState())
+          )
+        )
       );
   }
 
