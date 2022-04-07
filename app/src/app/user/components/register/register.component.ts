@@ -12,13 +12,20 @@ import { AuthService } from '../../services/auth.service';
 export class RegisterComponent {
   @ViewChild(NgForm) form!: NgForm;
 
-  pass: HTMLInputElement | undefined
+  // pass: HTMLInputElement | undefined;
 
   constructor(private userService: AuthService, private router: Router) {}
 
   register() {
     this.userService.register(this.form?.value).subscribe({
       next: () => {
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Successfull registration',
+          showConfirmButton: false,
+          timer: 1500,
+        });
         this.router.navigate(['/']);
       },
       error: (err) => {
@@ -26,7 +33,6 @@ export class RegisterComponent {
           icon: 'error',
           title: 'Oops...',
           text: `${err.error.message}`,
-          // footer: '<a href="">Why do I have this issue?</a>',
         });
       },
     });

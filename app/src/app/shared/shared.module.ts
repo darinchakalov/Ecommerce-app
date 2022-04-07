@@ -8,6 +8,6 @@ import { PassMatchDirective } from './directives/pass-match.directive';
 @NgModule({
   declarations: [LoaderComponent, PassMatchDirective],
   imports: [CommonModule, MatProgressSpinnerModule],
-  exports: [LoaderComponent],
+  exports: [LoaderComponent, PassMatchDirective],
 })
 export class SharedModule {}

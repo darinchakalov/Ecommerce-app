@@ -21,6 +21,10 @@
   flex-basis: 50%;
 }
 
+.error {
+  color: red !important;
+}
+
 .form-wrapper * {
   color: black;
 }

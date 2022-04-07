@@ -17,6 +17,13 @@ export class LoginComponent {
   login(): void {
     this.userService.login(this.form.value).subscribe({
       next: () => {
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Login successfull!',
+          showConfirmButton: false,
+          timer: 1500,
+        });
         this.router.navigate(['/']);
       },
       error: (err) => {
@@ -24,7 +31,6 @@ export class LoginComponent {
           icon: 'error',
           title: 'Oops...',
           text: `${err.error.message}`,
-          // footer: '<a href="">Why do I have this issue?</a>',
         });
       },
     });
