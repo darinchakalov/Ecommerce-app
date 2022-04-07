@@ -14,8 +14,8 @@ import Swal from 'sweetalert2';
 export class LatestProductsComponent {
   products: IProduct[] | undefined;
 
-  isLoggedIn() {
-    this.userService.isLoggedIn;
+  get isLoggedIn(): boolean {
+    return this.userService.isLoggedIn;
   }
 
   constructor(

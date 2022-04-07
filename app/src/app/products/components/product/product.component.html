@@ -8,7 +8,10 @@
       <div class="price">Price: {{ product?.price | currency: "USD" }}</div>
       <p>{{ product?.description }}</p>
       <label for="quantity">Available quantity: {{ product?.quantity }}</label>
-      <div *ngIf="isLoggedIn()" class="add-to-cart-wrapper">
+      <div
+        *ngIf="isLoggedIn && product.quantity > 0"
+        class="add-to-cart-wrapper"
+      >
         <input
           type="number"
           name="quantity"
@@ -17,6 +20,9 @@
           min="1"
         />
         <a (click)="addToCart()">Add to cart</a>
+      </div>
+      <div *ngIf="product.quantity == 0" class="out-of-stock">
+        Product is out of stock
       </div>
       <div class="devider"></div>
     </div>

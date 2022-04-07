@@ -17,8 +17,8 @@ export class ProductComponent {
 
   id = this.activatedRoute.snapshot.params['productId'];
 
-  isLoggedIn() {
-    this.userService.isLoggedIn
+  get isLoggedIn(): boolean {
+    return this.userService.isLoggedIn;
   }
 
   constructor(

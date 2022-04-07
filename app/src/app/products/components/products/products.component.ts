@@ -14,12 +14,15 @@ import { ProductService } from '../../services/product.service';
 export class ProductsComponent {
   products: IProduct[] | undefined;
 
-
-  isLoggedIn() {
-    this.userService.isLoggedIn
+  get isLoggedIn(): boolean {
+    return this.userService.isLoggedIn;
   }
 
-  constructor(private productService: ProductService, private store: Store, private userService: AuthService) {
+  constructor(
+    private productService: ProductService,
+    private store: Store,
+    private userService: AuthService
+  ) {
     this.fetchAllProducts();
   }
 

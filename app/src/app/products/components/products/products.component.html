@@ -5,7 +5,11 @@
         <img src="{{ product.imgUrl }}" alt="" />
       </div>
       <div class="button-wrapper">
-        <a *ngIf="isLoggedIn()" (click)="addToCart(product)">Add to cart</a>
+        <a
+          *ngIf="isLoggedIn && product.quantity > 0"
+          (click)="addToCart(product)"
+          >Add to cart</a
+        >
         <a [routerLink]="['/products', product._id]">Details</a>
       </div>
       <div class="info-wrapper">
