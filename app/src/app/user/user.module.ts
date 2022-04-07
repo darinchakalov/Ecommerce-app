@@ -7,6 +7,18 @@ import { LoginComponent } from './components/login/login.component';
 import { FormsModule } from '@angular/forms';
 import { ProfileComponent } from './components/profile/profile.component';
 import { SharedModule } from '../shared/shared.module';
+import { ActionReducer, MetaReducer, StoreModule } from '@ngrx/store';
+import { localStorageSync } from 'ngrx-store-localstorage';
+import { reducers } from './+store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+
+export function localStorageSyncReducer(
+  reducer: ActionReducer<any>
+): ActionReducer<any> {
+  return localStorageSync({ keys: ['user'], rehydrate: true })(reducer);
+}
+
+const metaReducers: Array<MetaReducer<any, any>> = [localStorageSyncReducer];
 
 @NgModule({
   declarations: [RegisterComponent, LoginComponent, ProfileComponent],
@@ -16,6 +28,8 @@ import { SharedModule } from '../shared/shared.module';
     UserRoutingModule,
     FormsModule,
     SharedModule,
+    StoreModule.forFeature('user', reducers, { metaReducers }),
+    StoreDevtoolsModule.instrument({}),
   ],
   exports: [RegisterComponent],
 })

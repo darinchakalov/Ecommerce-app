@@ -1,7 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { tap } from 'rxjs/operators';
 import { IUser } from 'src/app/shared/interfaces/user';
+import { clearUserState, setUser } from '../+store/actions';
 
 @Injectable({
   providedIn: 'root',
@@ -13,12 +15,18 @@ export class AuthService {
     return !!this.user;
   }
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private store: Store) {}
 
   login(data: { email: string; password: string }) {
     return this.http
       .post<IUser>(`/api/login`, data)
-      .pipe(tap((user) => (this.user = user)));
+      .pipe(
+        tap(
+          (user) => (
+            (this.user = user), this.store.dispatch(setUser({ user: user }))
+          )
+        )
+      );
   }
 
   register(data: {
@@ -29,13 +37,21 @@ export class AuthService {
   }) {
     return this.http
       .post<IUser>(`/api/register`, data)
-      .pipe(tap((user) => (this.user = user)));
+      .pipe(
+        tap(
+          (user) => (
+            (this.user = user), this.store.dispatch(setUser({ user: user }))
+          )
+        )
+      );
   }
 
   logout() {
     return this.http
       .post<IUser>(`/api/logout`, {})
-      .pipe(tap(() => (this.user = null)));
+      .pipe(
+        tap(() => ((this.user = null), this.store.dispatch(clearUserState())))
+      );
   }
 
   getUserInfo() {

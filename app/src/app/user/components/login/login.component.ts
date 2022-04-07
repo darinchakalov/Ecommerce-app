@@ -1,7 +1,10 @@
 import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { IUser } from 'src/app/shared/interfaces/user';
 import Swal from 'sweetalert2';
+import { setUser } from '../../+store/actions';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -12,7 +15,16 @@ import { AuthService } from '../../services/auth.service';
 export class LoginComponent {
   @ViewChild(NgForm) form!: NgForm;
 
-  constructor(private userService: AuthService, private router: Router) {}
+  // user: IUser | undefined;
+
+  constructor(
+    private userService: AuthService,
+    private router: Router,
+  ) {
+    
+  }
+
+  
 
   login(): void {
     if (this.form?.invalid) {

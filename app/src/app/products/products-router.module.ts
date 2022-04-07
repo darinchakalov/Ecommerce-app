@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthGuard } from '../core/guards/auth.guard';
 import { CartComponent } from './components/cart/cart.component';
 import { CreateComponent } from './components/create/create.component';
 import { EditComponent } from './components/edit/edit.component';
@@ -16,18 +17,38 @@ const routes: Routes = [
   {
     path: 'create',
     component: CreateComponent,
+    canActivate: [AuthGuard],
+    data: {
+      authenticationRequired: true,
+      authenticationFailureRedirectUrl: '/user/login',
+    },
   },
   {
     path: 'edit/:productId',
     component: EditComponent,
+    canActivate: [AuthGuard],
+    data: {
+      authenticationRequired: true,
+      authenticationFailureRedirectUrl: '/user/login',
+    },
   },
   {
     path: 'my-products',
     component: MyProductsComponent,
+    canActivate: [AuthGuard],
+    data: {
+      authenticationRequired: true,
+      authenticationFailureRedirectUrl: '/user/login',
+    },
   },
   {
     path: 'cart',
     component: CartComponent,
+    canActivate: [AuthGuard],
+    data: {
+      authenticationRequired: true,
+      authenticationFailureRedirectUrl: '/user/login',
+    },
   },
   {
     path: ':productId',

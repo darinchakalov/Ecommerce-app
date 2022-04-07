@@ -21,7 +21,9 @@ import { GoogleMapsModule } from '@angular/google-maps';
 export function localStorageSyncReducer(
   reducer: ActionReducer<any>
 ): ActionReducer<any> {
-  return localStorageSync({ keys: ['global'], rehydrate: true })(reducer);
+  return localStorageSync({ keys: ['global'], rehydrate: true })(
+    reducer
+  );
 }
 
 const metaReducers: Array<MetaReducer<any, any>> = [localStorageSyncReducer];
