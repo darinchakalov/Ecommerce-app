@@ -21,11 +21,11 @@ const initialState: IGlobalState = {
 
 export const globalReducer = createReducer(
   initialState,
-  on(incrementCounter, (state) => ({ ...state, counter: state.counter + 1 })),
+  on(incrementCounter, (state, { count }) => ({ ...state, counter: count })),
   on(addItem, (state, { item, productCount }) => ({
     ...state,
     items: [...state.items, { product: item, productCount: productCount }],
-    counter: state.counter + 1,
+    // counter: state.counter + 1,
   })),
   on(addExistingItem, (state, { item, productCount }) => ({
     ...state,
@@ -34,12 +34,12 @@ export const globalReducer = createReducer(
         ? { product: x.product, productCount: productCount }
         : { product: x.product, productCount: x.productCount }
     ),
-    counter: state.counter + 1,
+    // counter: state.counter + productCount,
   })),
   on(removeItem, (state, { item }) => ({
     ...state,
     items: [...state.items.filter((x) => x.product != item.product)],
-    counter: state.counter - 1,
+    // counter: state.counter - 1,
   })),
   on(clearGlobalState, (state) => ({
     ...state,

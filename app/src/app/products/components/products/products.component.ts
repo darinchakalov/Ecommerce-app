@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { Component } from '@angular/core';
 import { IProduct } from 'src/app/shared/interfaces/product';
 import { AuthService } from 'src/app/user/services/auth.service';
 import { CartService } from '../../services/cart.service';
@@ -19,7 +18,6 @@ export class ProductsComponent {
 
   constructor(
     private productService: ProductService,
-    private store: Store,
     private userService: AuthService,
     private cartService: CartService
   ) {
@@ -33,6 +31,6 @@ export class ProductsComponent {
   }
 
   addToCart(product: IProduct): void {
-    this.cartService.addToCart(product);
+    this.cartService.addToCart(product, 1);
   }
 }

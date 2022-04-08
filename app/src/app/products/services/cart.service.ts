@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { addExistingItem, addItem } from 'src/app/+store/actions';
+import {
+  addExistingItem,
+  addItem,
+  incrementCounter,
+} from 'src/app/+store/actions';
 import { selectGlobalItems } from 'src/app/+store/selectors';
 import { IProduct } from 'src/app/shared/interfaces/product';
 import Swal from 'sweetalert2';
@@ -11,9 +15,21 @@ import Swal from 'sweetalert2';
 export class CartService {
   currentCartItems = JSON.parse(localStorage.getItem('global')!).items;
   items: any[] | undefined;
+
   constructor(private store: Store<any>) {
     let items$ = this.store.select(selectGlobalItems);
     items$.subscribe((items) => (this.items = items));
+  }
+
+  getProductsCount(): void {
+    if (this.items) {
+      let sum = this.items?.reduce((prev, cur) => prev + cur.productCount, 0);
+      this.store.dispatch(incrementCounter({ count: sum }));
+      console.log('here: ', sum);
+    } else {
+      this.store.dispatch(incrementCounter({ count: 0 }));
+      console.log('shit');
+    }
   }
 
   isAlreadyAdded(product: IProduct): boolean {
@@ -27,15 +43,21 @@ export class CartService {
     return currentItem.productCount;
   }
 
-  addToCart(product: IProduct): void {
+  addToCart(product: IProduct, productCount: number): void {
     if (this.isAlreadyAdded(product)) {
       let currentCount = this.getCurrentCount(product);
       this.store.dispatch(
-        addExistingItem({ item: product, productCount: currentCount + 1 })
+        addExistingItem({
+          item: product,
+          productCount: currentCount + productCount,
+        })
       );
     } else {
-      this.store.dispatch(addItem({ item: product, productCount: 1 }));
+      this.store.dispatch(
+        addItem({ item: product, productCount: productCount })
+      );
     }
+    this.getProductsCount();
     Swal.fire({
       position: 'top-end',
       icon: 'success',

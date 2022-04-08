@@ -3,7 +3,10 @@ import { IProduct } from '../shared/interfaces/product';
 
 const namespace = '[GLOBAL]';
 
-export const incrementCounter = createAction(`${namespace} increment counter`);
+export const incrementCounter = createAction(
+  `${namespace} increment counter`,
+  props<{ count: number }>()
+);
 
 export const addItem = createAction(
   `${namespace} add item`,

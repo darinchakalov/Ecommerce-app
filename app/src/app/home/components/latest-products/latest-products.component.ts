@@ -31,6 +31,6 @@ export class LatestProductsComponent {
   }
 
   addToCart(product: IProduct): void {
-    this.cartService.addToCart(product);
+    this.cartService.addToCart(product, 1);
   }
 }

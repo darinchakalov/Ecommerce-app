@@ -21,8 +21,9 @@
             value="1"
             max="{{ product?.quantity }}"
             min="1"
+            #quantityInput
           />
-          <a (click)="addToCart()">Add to cart</a>
+          <a (click)="addToCart(+quantityInput.value)">Add to cart</a>
         </div>
         <div *ngIf="product.quantity == 0" class="out-of-stock">
           Product is out of stock

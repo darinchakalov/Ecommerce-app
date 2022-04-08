@@ -34,7 +34,7 @@ export class ProductComponent {
       .subscribe((product) => (this.product = product));
   }
 
-  addToCart(): void {
-    this.cartService.addToCart(this.product);
+  addToCart(productCount: number): void {
+    this.cartService.addToCart(this.product, productCount);
   }
 }
