@@ -37,5 +37,4 @@ export class ProductComponent {
   addToCart(): void {
     this.cartService.addToCart(this.product);
   }
-  currentSearchProduct: any;
 }
