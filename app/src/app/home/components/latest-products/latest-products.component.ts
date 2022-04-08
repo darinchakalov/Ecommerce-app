@@ -1,10 +1,8 @@
 import { Component } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { addItem, incrementCounter } from 'src/app/+store/actions';
+import { CartService } from 'src/app/products/services/cart.service';
 import { ProductService } from 'src/app/products/services/product.service';
 import { IProduct } from 'src/app/shared/interfaces/product';
 import { AuthService } from 'src/app/user/services/auth.service';
-import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-latest-products',
@@ -20,8 +18,8 @@ export class LatestProductsComponent {
 
   constructor(
     private productService: ProductService,
-    private store: Store,
-    private userService: AuthService
+    private userService: AuthService,
+    private cartService: CartService
   ) {
     this.fetchLatestProducts();
   }
@@ -33,15 +31,6 @@ export class LatestProductsComponent {
   }
 
   addToCart(product: IProduct): void {
-    this.store.dispatch(addItem({ item: product }));
-    this.store.dispatch(incrementCounter());
-    // this.isAddedHandler();
-    Swal.fire({
-      position: 'top-end',
-      icon: 'success',
-      title: 'Product was added to cart',
-      showConfirmButton: false,
-      timer: 1500,
-    });
+    this.cartService.addToCart(product);
   }
 }

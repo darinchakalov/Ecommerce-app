@@ -2,6 +2,7 @@
   width: 60%;
   margin: auto;
   margin-top: 1rem;
+  margin-bottom: 5rem;
 }
 
 h1 {
@@ -68,7 +69,7 @@ h1 {
   align-items: center;
 }
 
-table img{
+table img {
   width: 100px;
   height: 100px;
   object-fit: cover;
@@ -83,7 +84,7 @@ table * {
   align-items: center;
 }
 
-.cart-buttons{
+.cart-buttons {
   display: flex;
   gap: 1rem;
   width: 80%;

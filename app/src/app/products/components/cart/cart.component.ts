@@ -13,8 +13,7 @@ export class CartComponent {
   items: any;
   items$ = this.store.select(selectGlobalItems);
 
-  constructor(private store: Store<any>) {
-  }
+  constructor(private store: Store<any>) {}
 
   getTotal() {
     if (localStorage.getItem('global')) {
@@ -28,7 +27,7 @@ export class CartComponent {
     this.store.dispatch(clearGlobalState());
   }
 
-  removeItemFromCart(item: IProduct): void {
-    this.store.dispatch(removeItem({ item }));
+  removeItemFromCart(item: any): void {
+    this.store.dispatch(removeItem({ item: item }));
   }
 }
