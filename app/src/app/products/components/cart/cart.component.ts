@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { clearGlobalState, removeItem } from 'src/app/+store/actions';
 import { selectGlobalItems } from 'src/app/+store/selectors';
-import { IProduct } from 'src/app/shared/interfaces/product';
 
 @Component({
   selector: 'app-cart',
@@ -25,6 +24,7 @@ export class CartComponent {
 
   emptyCart(): void {
     this.store.dispatch(clearGlobalState());
+    localStorage.removeItem('global');
   }
 
   removeItemFromCart(item: any): void {
