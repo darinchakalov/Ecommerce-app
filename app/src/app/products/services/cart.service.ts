@@ -25,10 +25,8 @@ export class CartService {
     if (this.items) {
       let sum = this.items?.reduce((prev, cur) => prev + cur.productCount, 0);
       this.store.dispatch(incrementCounter({ count: sum }));
-      console.log('here: ', sum);
     } else {
       this.store.dispatch(incrementCounter({ count: 0 }));
-      console.log('shit');
     }
   }
 

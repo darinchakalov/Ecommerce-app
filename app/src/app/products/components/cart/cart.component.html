@@ -20,7 +20,7 @@
           </td>
           <td>{{ item.product.price | currency }}</td>
           <td>{{ item.productCount }}</td>
-          <td>{{ item.product.price | currency }}</td>
+          <td>{{ item.product.price * item.productCount | currency }}</td>
         </tr>
         <tr>
           <td></td>

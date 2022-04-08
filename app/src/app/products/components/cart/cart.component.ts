@@ -17,7 +17,7 @@ export class CartComponent {
   getTotal() {
     if (localStorage.getItem('global')) {
       let products = JSON.parse(localStorage.getItem('global')!).items;
-      let prices = products.map((x: any) => x.price);
+      let prices = products.map((x: any) => x.product.price * x.productCount);
       return prices.reduce((prev: number, cur: number) => prev + cur, 0);
     }
   }

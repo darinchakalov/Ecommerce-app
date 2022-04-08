@@ -10,8 +10,8 @@ import {
 
 export interface IGlobalState {
   readonly counter: number;
-  // readonly items: { product: IProduct; productCount: number }[];
-  readonly items: any[];
+  readonly items: { product: IProduct; productCount: number }[];
+  // readonly items: any[];
 }
 
 const initialState: IGlobalState = {
@@ -25,7 +25,6 @@ export const globalReducer = createReducer(
   on(addItem, (state, { item, productCount }) => ({
     ...state,
     items: [...state.items, { product: item, productCount: productCount }],
-    // counter: state.counter + 1,
   })),
   on(addExistingItem, (state, { item, productCount }) => ({
     ...state,
@@ -34,12 +33,11 @@ export const globalReducer = createReducer(
         ? { product: x.product, productCount: productCount }
         : { product: x.product, productCount: x.productCount }
     ),
-    // counter: state.counter + productCount,
   })),
   on(removeItem, (state, { item }) => ({
     ...state,
     items: [...state.items.filter((x) => x.product != item.product)],
-    // counter: state.counter - 1,
+    counter: state.counter - item.productCount,
   })),
   on(clearGlobalState, (state) => ({
     ...state,
