@@ -32,4 +32,8 @@ export class ProductService {
   editProduct(id: string, data: any) {
     return this.http.put<IProduct>(`/api/products/${id}`, data);
   }
+
+  finishOrder(products: any) {
+    return this.http.post<any>(`/api/products/finish`, products);
+  }
 }

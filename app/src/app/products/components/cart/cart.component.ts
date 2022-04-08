@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { clearGlobalState, removeItem } from 'src/app/+store/actions';
 import { selectGlobalItems } from 'src/app/+store/selectors';
+import { CartService } from '../../services/cart.service';
+import { ProductService } from '../../services/product.service';
 
 @Component({
   selector: 'app-cart',
@@ -12,7 +14,11 @@ export class CartComponent {
   items: any;
   items$ = this.store.select(selectGlobalItems);
 
-  constructor(private store: Store<any>) {}
+  constructor(
+    private store: Store<any>,
+    private productService: ProductService,
+    private cartService: CartService
+  ) {}
 
   getTotal() {
     if (localStorage.getItem('global')) {
@@ -25,6 +31,11 @@ export class CartComponent {
   emptyCart(): void {
     this.store.dispatch(clearGlobalState());
     localStorage.removeItem('global');
+  }
+
+  finishOrder(): void {
+    this.productService.finishOrder(this.cartService.items);
+    this.emptyCart();
   }
 
   removeItemFromCart(item: any): void {
