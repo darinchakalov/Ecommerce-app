@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { IProduct } from 'src/app/shared/interfaces/product';
 
 @Injectable({
@@ -15,6 +15,17 @@ export class ProductService {
   getAllProducts(limit?: number) {
     const query = limit ? `?limit=${limit}` : '';
     return this.http.get<IProduct[]>(`/api/products${query}`);
+  }
+
+  getAllProductsPaginated(startIndex: number, limit: number) {
+    return this.http.get<any>(`/api/products/list`, {
+      params: new HttpParams({
+        fromObject: {
+          startIndex,
+          limit,
+        },
+      }),
+    });
   }
 
   getSingleProduct(id: string) {

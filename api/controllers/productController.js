@@ -39,6 +39,14 @@ function getMyProducts(req, res, next) {
 		.catch(next);
 }
 
+function getProductList(req, res, next) {
+	const startIndex = +req.query.startIndex || 0;
+	const limit = +req.query.limit || Number.MAX_SAFE_INTEGER;
+	Promise.all([productModel.find().skip(startIndex).limit(limit), productModel.find().countDocuments()])
+		.then(([products, totalResults]) => res.json({ products, totalResults }))
+		.catch(next);
+}
+
 function deleteProduct(req, res, next) {
 	const { productId } = req.params;
 	productModel
@@ -91,4 +99,5 @@ module.exports = {
 	deleteProduct,
 	editProduct,
 	finishingOrder,
+	getProductList,
 };

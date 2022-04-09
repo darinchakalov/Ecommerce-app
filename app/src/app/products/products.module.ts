@@ -10,6 +10,7 @@ import { MyProductsComponent } from './components/my-products/my-products.compon
 import { CartComponent } from './components/cart/cart.component';
 import { EditComponent } from './components/edit/edit.component';
 import { SharedModule } from '../shared/shared.module';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,13 @@ import { SharedModule } from '../shared/shared.module';
     CartComponent,
     EditComponent,
   ],
-  imports: [CommonModule, ProductRoutingModule, FormsModule, SharedModule],
+  imports: [
+    CommonModule,
+    ProductRoutingModule,
+    FormsModule,
+    SharedModule,
+    MatPaginatorModule,
+  ],
   providers: [ProductService],
 })
 export class ProductsModule {}

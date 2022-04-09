@@ -1,3 +1,13 @@
+<mat-paginator
+  [length]="length"
+  [pageSize]="10"
+  [pageSizeOptions]="[5, 10, 20, 50]"
+  aria-label="Select page"
+  nextPageLabel="Next page"
+  previousPageLabel="Previous page"
+  (page)="onPageChange($event)"
+>
+</mat-paginator>
 <div class="content">
   <ng-container *ngFor="let product of products">
     <div class="product-wrapper">
