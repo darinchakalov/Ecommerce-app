@@ -34,6 +34,9 @@ export class ProductService {
   }
 
   finishOrder(products: any) {
-    return this.http.post<any>(`/api/products/finish`, products);
+    return this.http.put<{ product: IProduct; productCount: number }[]>(
+      `/api/products/finish`,
+      products
+    );
   }
 }

@@ -64,6 +64,25 @@ function editProduct(req, res, next) {
 		.catch(next);
 }
 
+function finishingOrder(req, res, next) {
+	let products = req.body;
+	products.forEach((element) => {
+		let product = element.product;
+		let count = element.productCount;
+		product.quantity -= count;
+		productModel
+			.findByIdAndUpdate(product._id, product)
+			.then((updated) => {
+				if (updated) {
+					res.status(200).json(updated);
+				} else {
+					res.status(401).json({ message: `Not allowed!` });
+				}
+			})
+			.catch(next);
+	});
+}
+
 module.exports = {
 	createProduct,
 	getAllProducts,
@@ -71,4 +90,5 @@ module.exports = {
 	getMyProducts,
 	deleteProduct,
 	editProduct,
+	finishingOrder,
 };

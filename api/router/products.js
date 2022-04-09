@@ -8,9 +8,11 @@ router.post("/", auth(), productController.createProduct);
 router.get("/", productController.getAllProducts);
 
 router.get("/my-products", auth(), productController.getMyProducts);
-router.get("/:productId", productController.getSingleProduct);
+router.put("/finish", auth(), productController.finishingOrder);
 
+router.get("/:productId", productController.getSingleProduct);
+router.put("/:productId", auth(), productController.editProduct);
 router.delete("/:productId", auth(), productController.deleteProduct);
-router.put("/:productId", productController.editProduct);
+
 
 module.exports = router;

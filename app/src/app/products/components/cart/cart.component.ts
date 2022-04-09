@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { clearGlobalState, removeItem } from 'src/app/+store/actions';
 import { selectGlobalItems } from 'src/app/+store/selectors';
+import Swal from 'sweetalert2';
 import { CartService } from '../../services/cart.service';
 import { ProductService } from '../../services/product.service';
 
@@ -17,7 +19,8 @@ export class CartComponent {
   constructor(
     private store: Store<any>,
     private productService: ProductService,
-    private cartService: CartService
+    private cartService: CartService,
+    private router: Router
   ) {}
 
   getTotal() {
@@ -34,7 +37,23 @@ export class CartComponent {
   }
 
   finishOrder(): void {
-    this.productService.finishOrder(this.cartService.items);
+    this.productService.finishOrder(this.cartService.items).subscribe({
+      next: () => {
+        Swal.fire({
+          title: 'Thank you for your order. We will ship it immediately',
+          showClass: {
+            popup: 'animate__animated animate__fadeInDown',
+          },
+          hideClass: {
+            popup: 'animate__animated animate__fadeOutUp',
+          },
+        });
+        this.router.navigate(['/']);
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
     this.emptyCart();
   }
 
