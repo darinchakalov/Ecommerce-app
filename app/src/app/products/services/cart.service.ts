@@ -64,4 +64,13 @@ export class CartService {
       timer: 1500,
     });
   }
+
+  getTotal(): number {
+    if (this.items) {
+      let prices = this.items.map((x) => x.product.price * x.productCount);
+      return prices.reduce((prev: number, cur: number) => prev + cur, 0);
+    } else {
+      return 0;
+    }
+  }
 }

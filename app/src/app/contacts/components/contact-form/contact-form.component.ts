@@ -13,6 +13,14 @@ export class ContactFormComponent {
   constructor() {}
 
   submit() {
+    if (this.form?.invalid) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'All fields are mandatory',
+      });
+      return;
+    }
     Swal.fire({
       position: 'top-end',
       icon: 'success',

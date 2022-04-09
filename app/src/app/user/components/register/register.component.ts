@@ -12,8 +12,6 @@ import { AuthService } from '../../services/auth.service';
 export class RegisterComponent {
   @ViewChild(NgForm) form!: NgForm;
 
-  // pass: HTMLInputElement | undefined;
-
   constructor(private userService: AuthService, private router: Router) {}
 
   register() {
