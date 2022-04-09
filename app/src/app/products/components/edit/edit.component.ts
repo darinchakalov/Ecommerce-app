@@ -32,14 +32,14 @@ export class EditComponent {
   }
 
   edit() {
-    if (this.form?.invalid) {
-      Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'All fields are mandatory',
-      });
-      return;
-    }
+    // if (this.form?.invalid) {
+    //   Swal.fire({
+    //     icon: 'error',
+    //     title: 'Oops...',
+    //     text: 'All fields are mandatory',
+    //   });
+    //   return;
+    // }
     if (this.form.controls.name.value === '') {
       this.form.controls.name.setValue(this.product?.name);
     }
