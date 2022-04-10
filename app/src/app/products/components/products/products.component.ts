@@ -46,13 +46,15 @@ export class ProductsComponent {
     console.log(event);
 
     const startIndex = event.pageIndex * event.pageSize;
-    let endIndex = startIndex + event.pageSize;
-    if (endIndex > this.totalProducts) {
-      endIndex = this.totalProducts;
-    }
+    // let endIndex = startIndex + event.pageSize;
+    let limit = event.pageSize;
+
+    // if (endIndex > this.totalProducts) {
+    //   endIndex = this.totalProducts;
+    // }
 
     this.productService
-      .getAllProductsPaginated(startIndex, endIndex)
+      .getAllProductsPaginated(startIndex, limit)
       .subscribe((result) => {
         this.products = result.products;
         this.length = result.totalResults;
