@@ -13,7 +13,13 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class AuthGuard implements CanActivate {
-  constructor(private router: Router, private store: Store<any>) {}
+  // storedUser: boolean = false;
+  constructor(private router: Router, private store: Store<any>) {
+    // console.log(!!JSON.parse(localStorage.getItem('user')!).user);
+    // if (localStorage.getItem('user') != null) {
+    //   this.storedUser = false;
+    // }
+  }
 
   canActivate(
     route: ActivatedRouteSnapshot,

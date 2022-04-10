@@ -61,7 +61,8 @@ function login(req, res, next) {
 			if (process.env.NODE_ENV === "production") {
 				res.cookie(authCookieName, token, { httpOnly: true, sameSite: "none", secure: true });
 			} else {
-				res.cookie(authCookieName, token, { httpOnly: true });
+				res.cookie(authCookieName, token, { httpOnly: true, sameSite: "none", secure: true });
+				// res.cookie(authCookieName, token, { httpOnly: true });
 			}
 			res.status(200).send(user);
 		})
