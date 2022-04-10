@@ -33,15 +33,6 @@ const routes: Routes = [
     },
   },
   {
-    path: 'my-products',
-    component: MyProductsComponent,
-    canActivate: [AuthGuard],
-    data: {
-      authenticationRequired: true,
-      authenticationFailureRedirectUrl: '/user/login',
-    },
-  },
-  {
     path: 'cart',
     component: CartComponent,
     canActivate: [AuthGuard],

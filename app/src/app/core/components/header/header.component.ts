@@ -18,6 +18,10 @@ export class HeaderComponent {
     return this.userService.user?.username || '';
   }
 
+  get isAdmin(): boolean {
+    return this.userService.user!.isAdmin;
+  }
+
   counter$ = this.store.select(selectGlobalCounter);
 
   constructor(

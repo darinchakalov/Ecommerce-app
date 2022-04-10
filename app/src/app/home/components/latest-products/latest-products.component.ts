@@ -16,6 +16,10 @@ export class LatestProductsComponent {
     return this.userService.isLoggedIn;
   }
 
+  get isAdmin(): boolean {
+    return this.userService.user!.isAdmin;
+  }
+
   constructor(
     private productService: ProductService,
     private userService: AuthService,

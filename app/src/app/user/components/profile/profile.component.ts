@@ -17,6 +17,10 @@ export class ProfileComponent {
     return this.products?.length;
   }
 
+  get isAdmin(): boolean {
+    return this.user!.isAdmin;
+  }
+
   constructor(
     private userService: AuthService,
     private productService: ProductService

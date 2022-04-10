@@ -15,7 +15,7 @@ function register(req, res, next) {
 	const { email, username, password, repeatPassword } = req.body;
 
 	return userModel
-		.create({ email, username, password })
+		.create({ email, username, password, isAdmin: false })
 		.then((createdUser) => {
 			createdUser = bsonToJson(createdUser);
 			createdUser = removePassword(createdUser);
@@ -24,7 +24,7 @@ function register(req, res, next) {
 			if (process.env.NODE_ENV === "production") {
 				res.cookie(authCookieName, token, { httpOnly: true, sameSite: "none", secure: true });
 			} else {
-				res.cookie(authCookieName, token, { httpOnly: true });
+				res.cookie(authCookieName, token, { httpOnly: true, sameSite: "none", secure: true });
 			}
 			res.status(200).send(createdUser);
 		})

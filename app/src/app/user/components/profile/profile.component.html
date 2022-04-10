@@ -8,10 +8,16 @@
     </div>
     <div class="data-wrapper">
       <h2>{{ user!.username | titlecase }}`s account</h2>
-      <p>You have created {{ productsCount }} products.</p>
-      <div class="button-wrapper">
-        <a routerLink="/products/create">Create more</a>
-        <a routerLink="/products/my-products">View my products</a>
+      <!-- <p>You have created {{ productsCount }} products.</p> -->
+      <p *ngIf="isAdmin">Account type: Admin</p>
+      <p *ngIf="!isAdmin">Account type: Customer</p>
+      <div *ngIf="isAdmin" class="button-wrapper">
+        <a routerLink="/products/create">Create new product</a>
+        <a routerLink="/products">View created products</a>
+      </div>
+      <div *ngIf="!isAdmin" class="button-wrapper">
+        <a routerLink="/products">Shop now</a>
+        <a routerLink="/products/cart">View cart</a>
       </div>
     </div>
   </div>

@@ -40,6 +40,10 @@ const userSchema = new mongoose.Schema(
 				ref: "Product",
 			},
 		],
+		isAdmin: {
+			type: Boolean,
+			default: false,
+		},
 	},
 	{ timestamps: { createdAt: "created_at" } }
 );

@@ -9,7 +9,7 @@
           </div>
           <div class="button-wrapper">
             <a
-              *ngIf="isLoggedIn && product.quantity > 0"
+              *ngIf="isLoggedIn && product.quantity > 0 && !isAdmin"
               (click)="addToCart(product)"
               >Add to cart</a
             >
@@ -21,7 +21,7 @@
           </div>
         </div>
       </ng-container>
-      <ng-container *ngIf="!products"> 
+      <ng-container *ngIf="!products">
         <app-loader></app-loader>
       </ng-container>
     </ng-container>

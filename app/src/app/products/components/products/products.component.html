@@ -16,14 +16,20 @@
       </div>
       <div class="button-wrapper">
         <a
-          *ngIf="isLoggedIn && product.quantity > 0"
+          *ngIf="isLoggedIn && product.quantity > 0 && !isAdmin"
           (click)="addToCart(product)"
           >Add to cart</a
         >
-        <a [routerLink]="['/products', product._id]">Details</a>
+        <a *ngIf="!isAdmin" [routerLink]="['/products', product._id]"
+          >Details</a
+        >
+        <a *ngIf="isAdmin" [routerLink]="['/products/edit', product._id]"
+          >Edit product</a
+        >
+        <a *ngIf="isAdmin" (click)="deleteProduct(product._id)">Delete</a>
       </div>
       <div class="info-wrapper">
-        <h3>{{ product.name | shorten: 16}}</h3>
+        <h3>{{ product.name | shorten: 16 }}</h3>
         <span class="price">Price: {{ product.price | currency: "USD" }}</span>
       </div>
     </div>

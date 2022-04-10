@@ -19,7 +19,6 @@
     <div class="mini-navbar-wrap">
       <div class="mini-navbar">
         <div *ngIf="isLogged">
-          <!-- <mat-icon matBadge="15" matBadgeColor="warn">Cart</mat-icon> -->
           <a
             mat-button
             [matBadge]="count.textContent"
@@ -35,14 +34,12 @@
             <a class="matMenuItem" routerLink="/user/profile" mat-menu-item
               >{{ username | titlecase }}`s Profile</a
             >
-            <a class="matMenuItem" routerLink="/products/create" mat-menu-item
-              >Create Product</a
-            >
             <a
+              *ngIf="isAdmin"
               class="matMenuItem"
-              routerLink="/products/my-products"
+              routerLink="/products/create"
               mat-menu-item
-              >My Products</a
+              >Create Product</a
             >
             <a class="matMenuItem" mat-menu-item (click)="logout()">Logout</a>
           </mat-menu>

@@ -16,6 +16,11 @@ export class AuthService {
     return !!this.user;
   }
 
+  get isAdmin(): boolean {
+    let userObj = JSON.parse(localStorage.getItem('user')!);
+    return userObj.isAdmin;
+  }
+
   constructor(private http: HttpClient, private store: Store) {}
 
   login(data: { email: string; password: string }) {
