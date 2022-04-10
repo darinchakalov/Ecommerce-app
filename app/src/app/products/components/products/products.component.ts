@@ -31,7 +31,7 @@ export class ProductsComponent {
     private cartService: CartService
   ) {
     // this.fetchAllProducts();
-    this.productService.getAllProductsPaginated(0, 10).subscribe((result) => {
+    this.productService.getAllProductsPaginated(0, 8).subscribe((result) => {
       this.products = result.products;
       this.length = result.totalResults;
     });

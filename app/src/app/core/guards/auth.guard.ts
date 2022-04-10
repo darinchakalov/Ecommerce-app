@@ -34,7 +34,6 @@ export class AuthGuard implements CanActivate {
     if (
       typeof authenticationRequired === 'boolean' &&
       authenticationRequired === this.userService.isLoggedIn
-      // !!JSON.parse(localStorage.getItem('user')!).user
     ) {
       return true;
     }

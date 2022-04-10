@@ -4,6 +4,7 @@ import { IProduct } from 'src/app/shared/interfaces/product';
 import { ProductService } from '../../services/product.service';
 import { AuthService } from 'src/app/user/services/auth.service';
 import { CartService } from '../../services/cart.service';
+import { MessageService } from 'src/app/core/services/message.service';
 
 @Component({
   selector: 'app-product',
@@ -23,7 +24,8 @@ export class ProductComponent {
     private productService: ProductService,
     private activatedRoute: ActivatedRoute,
     private userService: AuthService,
-    private cartService: CartService
+    private cartService: CartService,
+    private messageService: MessageService
   ) {
     this.fetchProduct();
   }
@@ -35,6 +37,12 @@ export class ProductComponent {
   }
 
   addToCart(productCount: number): void {
+    if (productCount > this.product.quantity) {
+      this.messageService.errorMessage(
+        'Cannot add more quantity than the available!'
+      );
+      return;
+    }
     this.cartService.addToCart(this.product, productCount);
   }
 }
