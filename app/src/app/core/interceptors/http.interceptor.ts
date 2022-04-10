@@ -9,13 +9,13 @@ import {
 import { catchError, Observable } from 'rxjs';
 
 import { environment } from 'src/environments/environment';
-import Swal from 'sweetalert2';
+import { MessageService } from '../services/message.service';
 
 const API_URL = environment.API_URL;
 
 @Injectable()
 export class MyHttpInterceptor implements HttpInterceptor {
-  constructor() {}
+  constructor(private messageService: MessageService) {}
 
   intercept(
     request: HttpRequest<any>,
@@ -35,11 +35,7 @@ export class MyHttpInterceptor implements HttpInterceptor {
       catchError((err) => {
         console.log(err.error.message);
         if (err.error.message != 'Invalid token!') {
-          Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: `${err.error.message}`,
-          });
+          this.messageService.errorMessage(err.error.message);
         }
         throw new Error(err);
       })

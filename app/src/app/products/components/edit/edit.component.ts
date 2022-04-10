@@ -20,7 +20,7 @@ export class EditComponent {
   constructor(
     private productService: ProductService,
     private activatedRoute: ActivatedRoute,
-    private router: Router
+    private router: Router,
   ) {
     this.fetchProduct();
   }
@@ -32,14 +32,6 @@ export class EditComponent {
   }
 
   edit() {
-    // if (this.form?.invalid) {
-    //   Swal.fire({
-    //     icon: 'error',
-    //     title: 'Oops...',
-    //     text: 'All fields are mandatory',
-    //   });
-    //   return;
-    // }
     if (this.form.controls.name.value === '') {
       this.form.controls.name.setValue(this.product?.name);
     }

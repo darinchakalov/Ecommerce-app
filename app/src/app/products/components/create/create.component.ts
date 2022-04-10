@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import Swal from 'sweetalert2';
+import { MessageService } from 'src/app/core/services/message.service';
 import { ProductService } from '../../services/product.service';
 
 @Component({
@@ -12,32 +12,26 @@ import { ProductService } from '../../services/product.service';
 export class CreateComponent {
   @ViewChild(NgForm) createForm!: NgForm;
 
-  constructor(private productService: ProductService, private router: Router) {}
+  constructor(
+    private productService: ProductService,
+    private router: Router,
+    private messageService: MessageService
+  ) {}
 
   create(): void {
     if (this.createForm?.invalid) {
-      Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'All fields are mandatory',
-      });
+      this.messageService.errorMessage('All fields are mandatory');
       return;
     }
     this.productService.createNewProduct(this.createForm?.value).subscribe({
       next: () => {
-        Swal.fire(
-          'Edited!',
-          'Your product has been created successfully.',
-          'success'
+        this.messageService.successMessage(
+          'Your product has been created successfully.'
         );
         this.router.navigate(['/products']);
       },
       error: (err) => {
-        Swal.fire({
-          icon: 'error',
-          title: 'Oops...',
-          text: `${err.error.message}`,
-        });
+        this.messageService.errorMessage(err.error.message);
       },
     });
   }

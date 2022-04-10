@@ -6,8 +6,8 @@ import {
   incrementCounter,
 } from 'src/app/+store/actions';
 import { selectGlobalItems } from 'src/app/+store/selectors';
+import { MessageService } from 'src/app/core/services/message.service';
 import { IProduct } from 'src/app/shared/interfaces/product';
-import Swal from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root',
@@ -16,7 +16,10 @@ export class CartService {
   currentCartItems = JSON.parse(localStorage.getItem('global')!).items;
   items: any[] | undefined;
 
-  constructor(private store: Store<any>) {
+  constructor(
+    private store: Store<any>,
+    private messageService: MessageService
+  ) {
     let items$ = this.store.select(selectGlobalItems);
     items$.subscribe((items) => (this.items = items));
   }
@@ -56,13 +59,7 @@ export class CartService {
       );
     }
     this.getProductsCount();
-    Swal.fire({
-      position: 'top-end',
-      icon: 'success',
-      title: 'Product was added to cart',
-      showConfirmButton: false,
-      timer: 1500,
-    });
+    this.messageService.successMessage('Product was added to cart');
   }
 
   getTotal(): number {

@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import Swal from 'sweetalert2';
+import { MessageService } from 'src/app/core/services/message.service';
 
 @Component({
   selector: 'app-contact-form',
@@ -10,24 +10,14 @@ import Swal from 'sweetalert2';
 export class ContactFormComponent {
   @ViewChild(NgForm) form!: NgForm;
 
-  constructor() {}
+  constructor(private messageService: MessageService) {}
 
   submit() {
     if (this.form?.invalid) {
-      Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'All fields are mandatory',
-      });
+      this.messageService.errorMessage('All fields are mandatory');
       return;
     }
-    Swal.fire({
-      position: 'top-end',
-      icon: 'success',
-      title: 'Your was send succesfully',
-      showConfirmButton: false,
-      timer: 1500,
-    });
+    this.messageService.successMessage('Your message was send succesfully');
     this.form.reset();
   }
 }
