@@ -6,7 +6,6 @@
   gap: 1rem;
   /* grid-template-columns: minmax(14rem, 1fr); */
   grid-template-columns: repeat(auto-fill, 16rem);
-
 }
 
 .product-wrapper {
@@ -17,10 +16,12 @@
   position: relative;
   height: 40vh;
   width: 14rem;
+  min-height: 250px;
 }
 
 .image-wrapper {
-  height: 70%;
+  height: 65%;
+  flex-shrink: 3;
 }
 
 img {
@@ -76,14 +77,17 @@ img {
 .info-wrapper {
   margin: 1rem;
   text-align: center;
+  flex-shrink: 5;
+  display: flex;
+  flex-direction: column;
 }
 
 .info-wrapper h3 {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 
 .info-wrapper .price {
   font-size: 0.9rem;
-  margin: 1rem;
+  /* margin: 1rem; */
   text-align: center;
 }

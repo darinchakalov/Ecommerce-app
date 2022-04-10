@@ -8,18 +8,17 @@ import {
 } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { AuthService } from 'src/app/user/services/auth.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthGuard implements CanActivate {
-  // storedUser: boolean = false;
-  constructor(private router: Router, private store: Store<any>) {
-    // console.log(!!JSON.parse(localStorage.getItem('user')!).user);
-    // if (localStorage.getItem('user') != null) {
-    //   this.storedUser = false;
-    // }
-  }
+  constructor(
+    private router: Router,
+    private store: Store<any>,
+    private userService: AuthService
+  ) {}
 
   canActivate(
     route: ActivatedRouteSnapshot,
@@ -34,8 +33,8 @@ export class AuthGuard implements CanActivate {
 
     if (
       typeof authenticationRequired === 'boolean' &&
-      authenticationRequired ===
-        !!JSON.parse(localStorage.getItem('user')!).user
+      authenticationRequired === this.userService.isLoggedIn
+      // !!JSON.parse(localStorage.getItem('user')!).user
     ) {
       return true;
     }

@@ -10,6 +10,7 @@ header {
   flex-direction: row;
   align-items: center;
   width: 90%;
+  flex-wrap: wrap;
 }
 
 .wrapper *:hover {

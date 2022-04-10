@@ -23,7 +23,7 @@
         <a [routerLink]="['/products', product._id]">Details</a>
       </div>
       <div class="info-wrapper">
-        <h3>{{ product.name }}</h3>
+        <h3>{{ product.name | shorten: 16}}</h3>
         <span class="price">Price: {{ product.price | currency: "USD" }}</span>
       </div>
     </div>
