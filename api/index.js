@@ -15,7 +15,10 @@ dbConnector()
 		require("./config/express")(app);
 
 		app.use(function (req, res, next) {
-			res.header("Access-Control-Allow-Origin", "http://angular.f4ster.com");
+			corsObj: {
+				origin: ["http://angular.f4ster.com", "https://angular.f4ster.com"];
+			}
+			res.header("Access-Control-Allow-Origin", ["http://angular.f4ster.com", "https://angular.f4ster.com"]);
 			res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 			next();
 		});
