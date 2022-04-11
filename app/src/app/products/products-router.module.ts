@@ -30,7 +30,6 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     data: {
       authenticationRequired: true,
-      hasToBeAdmin: true,
       authenticationFailureRedirectUrl: '/',
     },
   },

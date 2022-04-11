@@ -20,7 +20,7 @@ export class EditComponent {
   constructor(
     private productService: ProductService,
     private activatedRoute: ActivatedRoute,
-    private router: Router,
+    private router: Router
   ) {
     this.fetchProduct();
   }
@@ -80,6 +80,6 @@ export class EditComponent {
   }
 
   cancel() {
-    this.router.navigate(['/products/my-products']);
+    this.router.navigate(['/products']);
   }
 }

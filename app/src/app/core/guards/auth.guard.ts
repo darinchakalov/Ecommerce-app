@@ -26,11 +26,10 @@ export class AuthGuard implements CanActivate {
     const { authenticationRequired, authenticationFailureRedirectUrl } =
       route.data;
 
-    console.log(authenticationRequired, !!localStorage.getItem('user'));
-
+    let userObj = JSON.parse(localStorage.getItem('user')!);
     if (
       typeof authenticationRequired === 'boolean' &&
-      authenticationRequired === !!localStorage.getItem('user')
+      authenticationRequired === !!userObj.user
     ) {
       return true;
     }

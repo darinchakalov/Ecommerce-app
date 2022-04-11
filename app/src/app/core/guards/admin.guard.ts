@@ -25,9 +25,16 @@ export class AdminGuard implements CanActivate {
     | UrlTree {
     const { hasToBeAdmin } = route.data;
 
+    let userObj = JSON.parse(localStorage.getItem('user')!);
+
+    console.log(
+      hasToBeAdmin,
+      userObj.user.isAdmin,
+      JSON.parse(localStorage.getItem('user')!)
+    );
     if (
       typeof hasToBeAdmin === 'boolean' &&
-      hasToBeAdmin === this.userService.user?.isAdmin
+      hasToBeAdmin === userObj.user.isAdmin
     ) {
       return true;
     }

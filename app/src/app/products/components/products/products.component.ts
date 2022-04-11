@@ -22,6 +22,10 @@ export class ProductsComponent {
   }
 
   get isAdmin(): boolean {
+    if (this.userService.user == null) {
+      return false;
+    }
+
     return this.userService.user!.isAdmin;
   }
 
