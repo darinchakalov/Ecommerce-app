@@ -15,12 +15,12 @@ dbConnector()
 		require("./config/express")(app);
 
 		app.use(function (req, res, next) {
-			let allowedDomains = "https://angular.f4ster.com";
-			let origin = req.headers.origin;
-			if (allowedDomains.indexOf(origin) > -1) {
-				res.setHeader("Access-Control-Allow-Origin", origin);
-			}
-			// res.header("Access-Control-Allow-Origin", "http://angular.f4ster.com");
+			// let allowedDomains = ["http://angular.f4ster.com", "https://angular.f4ster.com"];
+			// let origin = req.headers.origin;
+			// if (allowedDomains.indexOf(origin) > -1) {
+			// 	res.setHeader("Access-Control-Allow-Origin", origin);
+			// }
+			res.header("Access-Control-Allow-Origin", "https://angular.f4ster.com");
 			res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 			next();
 		});
