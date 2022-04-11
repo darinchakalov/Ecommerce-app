@@ -6,7 +6,6 @@ import { FormsModule } from '@angular/forms';
 import { ProductService } from './services/product.service';
 import { ProductsComponent } from './components/products/products.component';
 import { ProductComponent } from './components/product/product.component';
-import { MyProductsComponent } from './components/my-products/my-products.component';
 import { CartComponent } from './components/cart/cart.component';
 import { EditComponent } from './components/edit/edit.component';
 import { SharedModule } from '../shared/shared.module';
@@ -17,7 +16,6 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     CreateComponent,
     ProductsComponent,
     ProductComponent,
-    MyProductsComponent,
     CartComponent,
     EditComponent,
   ],

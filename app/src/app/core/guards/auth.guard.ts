@@ -6,7 +6,6 @@ import {
   RouterStateSnapshot,
   UrlTree,
 } from '@angular/router';
-import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/user/services/auth.service';
 
@@ -14,11 +13,7 @@ import { AuthService } from 'src/app/user/services/auth.service';
   providedIn: 'root',
 })
 export class AuthGuard implements CanActivate {
-  constructor(
-    private router: Router,
-    private store: Store<any>,
-    private userService: AuthService
-  ) {}
+  constructor(private router: Router, private userService: AuthService) {}
 
   canActivate(
     route: ActivatedRouteSnapshot,
@@ -31,9 +26,11 @@ export class AuthGuard implements CanActivate {
     const { authenticationRequired, authenticationFailureRedirectUrl } =
       route.data;
 
+    console.log(authenticationRequired, !!localStorage.getItem('user'));
+
     if (
       typeof authenticationRequired === 'boolean' &&
-      authenticationRequired === this.userService.isLoggedIn
+      authenticationRequired === !!localStorage.getItem('user')
     ) {
       return true;
     }
