@@ -15,7 +15,7 @@ dbConnector()
 		require("./config/express")(app);
 
 		app.use(function (req, res, next) {
-			let allowedDomains = ["http://angular.f4ster.com", "https://angular.f4ster.com"];
+			let allowedDomains = "https://angular.f4ster.com";
 			let origin = req.headers.origin;
 			if (allowedDomains.indexOf(origin) > -1) {
 				res.setHeader("Access-Control-Allow-Origin", origin);
