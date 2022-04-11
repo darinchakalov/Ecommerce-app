@@ -7,17 +7,20 @@ const cors = require("cors");
 // const config = require('./config/config');
 const { errorHandler } = require("./utils");
 
-	
-
 dbConnector()
 	.then(() => {
 		const config = require("./config/config");
 
 		const app = require("express")();
 		require("./config/express")(app);
-		
+
 		app.use(function (req, res, next) {
-			res.header("Access-Control-Allow-Origin", "http://angular.f4ster.com");
+			let allowedDomains = ["http://angular.f4ster.com", "https://angular.f4ster.com"];
+			let origin = req.headers.origin;
+			if (allowedDomains.indexOf(origin) > -1) {
+				res.setHeader("Access-Control-Allow-Origin", origin);
+			}
+			// res.header("Access-Control-Allow-Origin", "http://angular.f4ster.com");
 			res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 			next();
 		});
