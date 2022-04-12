@@ -20,6 +20,13 @@ export class ProductComponent {
     return this.userService.isLoggedIn;
   }
 
+  get isAdmin(): boolean {
+    if (this.userService.user == null) {
+      return false;
+    }
+    return this.userService.user!.isAdmin;
+  }
+
   constructor(
     private productService: ProductService,
     private activatedRoute: ActivatedRoute,

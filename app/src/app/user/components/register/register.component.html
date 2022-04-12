@@ -30,7 +30,7 @@
           name="email"
           ngModel
           required
-          email
+          appEmailValidator
           #emailInput="ngModel"
           placeholder="ivan@abv.bg"
         />
@@ -38,7 +38,7 @@
           <p *ngIf="emailInput.errors?.['required']" class="error">
             Email is required!
           </p>
-          <p *ngIf="emailInput.errors?.email" class="error">
+          <p *ngIf="emailInput.errors?.invalidEmail" class="error">
             Email is not valid!
           </p>
         </ng-container>

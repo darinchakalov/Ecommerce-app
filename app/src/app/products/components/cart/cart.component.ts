@@ -39,7 +39,9 @@ export class CartComponent {
         this.messageService.animatedMessage(
           'Thank you for your order. We will ship it immediately'
         );
-        this.router.navigate(['/']);
+        setTimeout(() => {
+          this.router.navigate(['/']);
+        }, 2000);
       },
       error: (err) => {
         console.log(err);

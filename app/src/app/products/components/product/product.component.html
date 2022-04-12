@@ -12,7 +12,7 @@
           >Available quantity: {{ product?.quantity }}</label
         >
         <div
-          *ngIf="isLoggedIn && product.quantity > 0"
+          *ngIf="isLoggedIn && product.quantity > 0 && !isAdmin"
           class="add-to-cart-wrapper"
         >
           <input
@@ -27,6 +27,9 @@
         </div>
         <div *ngIf="product.quantity == 0" class="out-of-stock">
           Product is out of stock
+        </div>
+        <div *ngIf="isAdmin" class="add-to-cart-wrapper">
+          <a [routerLink]="['/products/edit', product._id]">Edit product</a>
         </div>
         <div class="devider"></div>
       </div>

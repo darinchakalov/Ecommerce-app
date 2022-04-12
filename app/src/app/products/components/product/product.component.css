@@ -58,6 +58,10 @@
   text-align: center;
 }
 
+.add-to-cart-wrapper a {
+  text-decoration: none;
+}
+
 .devider {
   background-color: rgb(66, 66, 67);
   width: 100%;
