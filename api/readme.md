@@ -2,8 +2,6 @@
 
 ## Getting started
 
-Let's make our first API request to the REST-api!
-
 In the example below, we're trying to get information about the REST-api:
 
 `https://localhost:3000/api/test`
@@ -30,7 +28,3 @@ The Base URL for the API is:
 `https://localhost:3000/api`
 
 The documentation below assumes you are prepending the Base URL to the endpoints in order to make requests.
-
-## Authentication
-
-This API isn't open API. Authentication is required to store and get data. You can use the connected REACT-app to make registration and sign in. This also means that I've limited what you can do. If you find a mistake, then just write an issue.
