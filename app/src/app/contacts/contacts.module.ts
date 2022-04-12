@@ -6,6 +6,7 @@ import { ContactFormComponent } from './components/contact-form/contact-form.com
 import { FormsModule } from '@angular/forms';
 import { MapsComponent } from './components/maps/maps.component';
 import { GoogleMapsModule } from '@angular/google-maps';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,6 @@ import { GoogleMapsModule } from '@angular/google-maps';
     ContactFormComponent,
     MapsComponent,
   ],
-  imports: [CommonModule, FormsModule, GoogleMapsModule],
+  imports: [CommonModule, FormsModule, GoogleMapsModule, SharedModule],
 })
 export class ContactsModule {}

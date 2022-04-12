@@ -11,7 +11,6 @@ import {
 export interface IGlobalState {
   readonly counter: number;
   readonly items: { product: IProduct; productCount: number }[];
-  // readonly items: any[];
 }
 
 const initialState: IGlobalState = {
