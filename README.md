@@ -42,12 +42,12 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 ## Screenshots
 
-https://nimb.ws/IoZjcQ
+![alt text](https://nimb.ws/IoZjcQ)
 
-https://nimb.ws/CGXShK
+![alt text](https://nimb.ws/CGXShK)
 
-https://nimb.ws/6lWvfP
+![alt text](https://nimb.ws/6lWvfP)
 
-https://nimb.ws/1cNzyp
+![alt text](https://nimb.ws/1cNzyp)
 
-https://nimb.ws/MHYNy4
+![alt text](https://nimb.ws/MHYNy4)
