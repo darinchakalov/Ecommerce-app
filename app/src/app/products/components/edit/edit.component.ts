@@ -65,7 +65,7 @@ export class EditComponent {
               'Your product has been edited successfully.',
               'success'
             );
-            this.router.navigate(['/products/my-products']);
+            this.router.navigate(['/products']);
           },
           error: (err) => {
             Swal.fire({
