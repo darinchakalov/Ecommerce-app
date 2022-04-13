@@ -2,17 +2,29 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.2.
 
-It is an ecommerce website which has two types of users: admins and customers. 
+It is an ecommerce website which has two types of users: admins and customers.
 
-Admin users can create, edit and delete products. 
+Admin users can create, edit and delete products.
 
-Customers can add products to shopping cart and finish their order. Only logged in users can add products to their cart. 
+Customers can add products to shopping cart and finish their order. Only logged in users can add products to their cart.
+
+## App Details
+
+The app is based on Angular + Node.js + Express.js + MongoDB.
 
 ## Development server
 
 Run `ng serve` for a dev server within the app folder. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Development API
+## RESTful API
+
+The following endpoints are supported:
+
+GET /api/products - list all products
+GET /api/products/:id - get details about given product
+POST /api/products - create a new product
+PUT /api/products/:id - edit given product
+DELETE /api/products/:id - delete given product
 
 Run `npm start` for a dev api server within the api folder. The api will be available at `http://localhost:3000/`.
 
@@ -28,14 +40,14 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+## Screenshots
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+https://nimb.ws/IoZjcQ
 
-## Running end-to-end tests
+https://nimb.ws/CGXShK
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+https://nimb.ws/6lWvfP
 
-## Further help
+https://nimb.ws/1cNzyp
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+https://nimb.ws/MHYNy4
