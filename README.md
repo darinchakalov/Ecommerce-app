@@ -44,3 +44,9 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 ![screenshot-angular f4ster com-2022 04 13-18_51_13](https://user-images.githubusercontent.com/19432229/163223268-7ef54086-cc51-4734-a1f2-5a5887921b4e.png)
 
 ![screenshot-angular f4ster com-2022 04 13-18_51_25](https://user-images.githubusercontent.com/19432229/163223287-c36ad919-571f-4d3f-b964-04926d5ebadb.png)
+
+![screenshot-angular f4ster com-2022 04 13-18_51_40](https://user-images.githubusercontent.com/19432229/163223538-e9b406a6-f81d-4c0f-a1fc-00ff97c94148.png)
+
+![screenshot-angular f4ster com-2022 04 13-18_52_38](https://user-images.githubusercontent.com/19432229/163223548-1cccb1fc-f253-41c5-8b19-89776d322492.png)
+
+![screenshot-angular f4ster com-2022 04 13-18_52_55](https://user-images.githubusercontent.com/19432229/163223557-6f19bda5-fb54-4ec6-8ad6-a0f8426b6a79.png)
