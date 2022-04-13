@@ -44,7 +44,7 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 ![image](https://nimb.ws/IoZjcQ)
 
-![alt text](https://nimb.ws/CGXShK)
+<img src=https://nimb.ws/CGXShK>
 
 ![alt text](https://nimb.ws/6lWvfP)
 
