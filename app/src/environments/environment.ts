@@ -5,9 +5,9 @@
 export const environment = {
   production: false,
   // API_URL: 'https://product-api.glitch.me/api',
-  // API_URL: 'http://localhost:3000/api',
+  API_URL: 'http://localhost:3000/api',
   // API_URL: 'https://product-api-angular.herokuapp.com/api',
-  API_URL: 'https://angular-product-rest-api.fly.dev/api',
+  // API_URL: 'https://angular-product-rest-api.fly.dev/api',
 };
 
 /*
